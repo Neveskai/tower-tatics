@@ -1,0 +1,257 @@
+@font-face {
+  font-family: 'Exo 2';
+  src: url('/fonts/Exo2-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('/fonts/Exo2-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --small-screen-bp: 480px;
+  --medium-screen-bp: 1024px;
+  /* Layout variables */
+  --hud-bg: #333333;
+  --hud-bg-2: #1d1d1d;
+  --hud-height: 40px;
+  --hud-padding-vertical: 2px;
+  --hud-padding-horizontal: 10px;
+  --sidebar-width: 12%;
+  --left-sidebar-padding-top: 8px;
+  --right-sidebar-padding-top: 12px;
+
+  /* Color variables */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray075: rgba(255, 255, 255, 0.75);
+
+  /* UI Colors */
+  --color-primary: #e04c3c;
+  --color-primary-hover: #c0392b;
+  --color-secondary: #6090d0;
+  --color-secondary-hover: #4979c9;
+  --color-danger: #ff6050;
+  --color-danger-hover: #ff5040;
+  --color-warning: #d1a60f;
+  --color-warning-hover: #c48f0d;
+  --color-success: #1ecf31;
+  --color-success-hover: #17b220;
+  --color-disabled: #7f8c8d;
+  --color-gold: gold;
+  --color-red: #ff6b6b;
+  --color-orange: orange;
+
+  /* Health bars */
+  --color-health-bar-bg: #ccc;
+  --color-health-bar: var(--color-primary);
+  --color-health-segment-filled: var(--color-primary);
+  --color-health-segment-empty: #202020;
+
+  /* Dividers and backgrounds */
+  --hud-divider-color: #333;
+
+  /* HUD panels (design system) */
+  --hud-panel-bg: rgba(0, 0, 0, 0.5);
+  --hud-panel-border: 1px solid rgba(255, 255, 255, 0.12);
+  --hud-panel-radius: 12px;
+  --hud-panel-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --hud-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  --hud-glass-bg: rgba(20, 35, 20, 0.75);
+  --hud-glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* HUD stylized background: use image (ex.: url('/assets/images/hud-bar.webp')) or 'none' para só gradiente */
+  --hud-bar-image: none;
+  /* Barras da HUD: visual tático, bordas definidas */
+  --hud-bar-bg: linear-gradient(
+    180deg,
+    rgba(24, 42, 28, 0.98) 0%,
+    rgba(18, 32, 22, 0.98) 50%,
+    rgba(14, 26, 18, 0.99) 100%
+  );
+  --hud-bar-border-color: rgba(80, 120, 70, 0.5);
+  --hud-bar-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --hud-panel-bg-styled: linear-gradient(
+    165deg,
+    rgba(32, 52, 36, 0.92) 0%,
+    rgba(22, 38, 26, 0.95) 100%
+  );
+  --hud-panel-border-styled: 1px solid rgba(100, 150, 90, 0.3);
+
+  /* HUD mode button colors */
+  --hud-mode-tower: linear-gradient(180deg, #5a8fd8 0%, #4070b8 100%);
+  --hud-mode-tower-hover: linear-gradient(180deg, #6a9fe8 0%, #5080c8 100%);
+  --hud-mode-shop: linear-gradient(180deg, #e8b830 0%, #c49410 100%);
+  --hud-mode-shop-hover: linear-gradient(180deg, #f0c840 0%, #d4a418 100%);
+  --hud-mode-battle: linear-gradient(180deg, #e04040 0%, #b82828 100%);
+  --hud-mode-battle-hover: linear-gradient(180deg, #f05050 0%, #c83838 100%);
+
+  /* Upgrade section */
+  --color-upgrade-bg: rgba(255, 165, 0, 0.2);
+  --color-upgrade-text: orange;
+}
+
+* {
+  font-family: 'Exo 2', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling - thin, neutral */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.4);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 140, 140, 0.5);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgba(100, 100, 100, 0.6);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  max-width: calc(100vh * 9 / 16);
+  /* max-height: calc(100vw * 16 / 9); */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+#pixi-container {
+  top: 60px;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  z-index: 3;
+  display: none;
+}
+
+#react-root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#app-bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cfe9cf;
+}
+
+#preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  /* nova organização em coluna */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#preloader-pixi-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.preloader-text {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  font-weight: 700;
+  margin: auto;
+}
+
+.preloader-logo {
+  padding-top: 58px;
+  height: auto;
+  width: 100%;
+}
+
+.preloader-progress-bar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+  background: #333;
+  overflow: hidden;
+  align-self: center;
+}
+
+.preloader-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-orange));
+  transition: width 0.3s ease;
+}

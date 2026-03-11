@@ -1,0 +1,18 @@
+.upgrading {
+  z-index: 100;
+  margin-top: -44px;
+  width: 100%;
+  text-align: center;
+  padding: 6px 8px;
+  background-color: rgba(255, 165, 0, 0.3);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-orange);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

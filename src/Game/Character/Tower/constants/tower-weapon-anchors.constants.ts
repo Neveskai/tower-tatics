@@ -1,0 +1,1 @@
+export const BASE_WEAPON_SIZE = 0.9;

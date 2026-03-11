@@ -1,0 +1,6 @@
+export const BLIZZARD_SIZE = 6
+export const BLIZZARD_DURATION_MS = 5000
+export const BLIZZARD_SLOW_FACTOR = 0.3
+export const BLIZZARD_SLOW_DURATION = 1.5
+export const BLIZZARD_DAMAGE_PER_TICK = 10
+export const BLIZZARD_TICK_INTERVAL_MS = 500

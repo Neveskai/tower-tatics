@@ -1,0 +1,9 @@
+.sliderLabel {
+  color: #000;
+  display: block;
+  font-weight: bold;
+}
+
+.slider {
+  width: 100%;
+}

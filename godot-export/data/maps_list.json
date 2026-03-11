@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nome": "Desert",
+    "descricao": "An endless scorched land crawling with ancient horrors.",
+    "dificuldade": "easy",
+    "hordas": 10,
+    "wave_interval_seconds": 30,
+    "imagem": "res://assets/images/maps/Map_1.png",
+    "grid_color": 5855577,
+    "tile_tint": 15914912,
+    "dirt_tint": 12946234
+  },
+  {
+    "id": 2,
+    "nome": "Cemetery",
+    "descricao": "A cursed graveyard where the dead refuse to rest.",
+    "dificuldade": "medium",
+    "hordas": 15,
+    "wave_interval_seconds": 24,
+    "imagem": "res://assets/images/maps/Map_2.png",
+    "grid_color": 4605510,
+    "tile_tint": 6978155,
+    "dirt_tint": 5001042
+  },
+  {
+    "id": 3,
+    "nome": "Garden",
+    "descricao": "A garden overrun by corrupted nature.",
+    "dificuldade": "hard",
+    "hordas": 20,
+    "wave_interval_seconds": 18,
+    "imagem": "res://assets/images/maps/Map_3.png",
+    "grid_color": 5855577,
+    "tile_tint": 8964459,
+    "dirt_tint": 6197059
+  },
+  {
+    "id": 4,
+    "nome": "Ice",
+    "descricao": "Frozen wasteland.",
+    "dificuldade": "very_hard",
+    "hordas": 25,
+    "wave_interval_seconds": 14,
+    "imagem": "res://assets/images/maps/Map_4.png",
+    "grid_color": 5855577,
+    "tile_tint": 13166847,
+    "dirt_tint": 8368895
+  },
+  {
+    "id": 5,
+    "nome": "Hell",
+    "descricao": "Nightmare realm.",
+    "dificuldade": "nightmare",
+    "hordas": 40,
+    "wave_interval_seconds": 12,
+    "imagem": "res://assets/images/maps/Map_5.png",
+    "grid_color": 4605510,
+    "tile_tint": 8400944,
+    "dirt_tint": 16742972
+  }
+]

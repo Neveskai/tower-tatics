@@ -1,0 +1,71 @@
+.ContainerA {
+  gap: 4px;
+  width: 100%;
+  max-height: 96px;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ActiveBorder {
+  padding: 4px;
+  border-radius: 8px;
+  border: 2px solid var(--color-gold);
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.75),
+    0 0 24px rgba(255, 215, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.ContainerA .titleBtn {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  margin-left: -2px;
+  justify-content: center;
+}
+
+.ContainerA .upgradeBtn {
+  width: 40px;
+  min-width: 24px;
+  margin-left: -15px;
+}
+
+.ContainerA .titleBtn .buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionsLoading {
+  flex: 1;
+  min-width: 0;
+}
+
+.upgrading {
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-upgrade-bg);
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  font-size: 12px;
+  color: var(--color-upgrade-text);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.GoldIcon {
+  margin-left: 4px;
+}

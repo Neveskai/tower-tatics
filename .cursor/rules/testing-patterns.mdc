@@ -1,0 +1,375 @@
+---
+description: Regras de escrita dos testes do projeto
+globs: **/*.spec.ts,**/*.spec.tsx
+alwaysApply: false
+---
+
+Você é um Engenheiro de Software especialista em front-end. Você tem amplo conhecimento sobre o testes de unidade e integração, incluindo Jest e React Testing Library.
+
+# Padrões de teste
+
+## Ferramental
+
+- Use Jest como framework base para escrita dos testes
+- Use typescript como linguagem base
+
+## Padrão de nomenclatura arquivo
+
+- O nome dos arquivos deve ser escrito com kebab-case
+- O nome do projeto sempre deve contar com o sufixo .spec (indica o arquivo de testes)
+- O nome do arquivo deve contar com extensão .ts ou .tsx
+- O nome do arquivo deve referenciar a nomenclatura do artefato que será testado
+- Exemplos:
+  - button.component.spec.tsx (testes do componente Button que está no arquivo button.component.tsx)
+  - use-editor.hook.spec.ts (testes do hook useEditor que está no arquivo use-editor.hook.ts)
+  - button.helpers.spec.ts (testes dos helpers que estão no arquivo button-helpers.ts)
+
+## Padrões de escrita dos testes
+
+- Todos os testes devem ser escritos usando em inglês (descrições e variáveis)
+- Todos os casos de teste devem estar dentro de uma suit definida pela palavra describe
+- Todos os casos de teste devem usar a palavra reservada it
+- Todas as descrições dos casos de teste devem contar com as palavras SHOULD, IT, WHEN e IF em caixa alta
+- A descrição da suit de testes deve sempre referenciar o nome do artefato testado (ButtonComponent, useEditor, getUserById)
+- A descrição dos casos de teste deve ser objetiva e intuitiva
+- Nunca adicione comentários para documentar ou organizar os casos de teste
+
+## Padrão de fakers e mocks
+
+### Fakers
+
+- Deve ser declarado em camelCase
+- Deve ter sempre o prefixo fake
+- Deve estar no arquivos de mocks (.mock)
+- Deve ser declarado com a importação da tipagem corresponde
+
+```javascript
+
+const fakeUser: User = {
+  id: 'fake-user-id',
+  name: 'fake-user-name',
+  date: new Date().toLocaleString(),
+  age: 1
+}
+
+const fakeUserId = 'fake-user-id'
+
+const fakeUsers: User[] = [
+  fakeUser, {...}
+]
+
+```
+
+### Mocks
+
+- Deve ser declarado em camelCase
+- Deve ter sempre o sufixoMock
+- Deve estar no arquivos de mocks (.mock)
+- Sempre mock a importação da função via jest se necessário
+
+```javascript
+
+import { subscribe } from './entities'
+
+jest.mock('./entities', () => ({
+  subscribe: jest.fn()
+}) )
+
+const getUserByIdMock = jest.fn()
+const subscribeMock = subscribe as jest.Mock
+```
+
+## Testes de componente
+
+- Além do Jest e do Typescript, use React Testing Library
+- Teste a renderização do componente em tela
+- Teste as renderizações atreladas a dados (por exemplo, a renderização de dados no estado do componente)
+- Testar os comportamentos previstos de interação do usuário
+- Testar casos alternativos (empty state, carregamento e erro)
+- Validar a acessibilidade dos componentes
+
+```typescript
+import { createRef } from 'react'
+
+import { fireEvent, render, screen } from '@testing-library/react'
+
+import { ToolbarButton } from '.'
+import { ToolbarButtonProps } from './toolbar-button.types'
+
+jest.mock('../../Tooltip', () => ({
+  Tooltip: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="tooltip-mock">{children}</div>
+  )
+}))
+
+const makeSUT = ({ ...props }: ToolbarButtonProps) => {
+  render(<ToolbarButton {...props} />)
+}
+
+describe('ToolbarButton', () => {
+  it('SHOULD render a button with only icon WHEN label is not provided', () => {
+    makeSUT({ icon: 'Bold' })
+
+    const button = screen.getByRole('button', { name: 'Bold' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).toHaveAttribute('aria-label', 'Bold')
+    expect(button).toHaveTextContent('')
+    expect(screen.queryByTestId('icon')).toBeInTheDocument()
+  })
+
+  it('SHOULD render a button with only label WHEN icon is not provided', () => {
+    makeSUT({ label: 'Bold button' })
+
+    const button = screen.getByRole('button', { name: 'Bold button' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).toHaveAttribute('aria-label', 'Bold button')
+    expect(screen.queryByTestId('icon')).not.toBeInTheDocument()
+  })
+
+  it('SHOULD render both icon and label WHEN both props are provided', () => {
+    makeSUT({ icon: 'Italic', label: 'Italic button' })
+
+    const icon = screen.getByTestId('icon')
+    const button = screen.getByRole('button', { name: 'Italic button' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).toHaveAttribute('aria-label', 'Italic button')
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('SHOULD apply active class and aria-pressed="true" WHEN isActive is true', () => {
+    makeSUT({ icon: 'Underline', isActive: true })
+
+    const button = screen.getByRole('button', { name: 'Underline' })
+
+    expect(button).toHaveAttribute('aria-pressed', 'true')
+    expect(button).toHaveClass('arco-editor__toolbar-button')
+    expect(button).toHaveClass('arco-editor__toolbar-button--active')
+  })
+
+  it('SHOULD forward additional props', () => {
+    const onClickMock = jest.fn()
+
+    makeSUT({ icon: 'Strikethrough', onClick: onClickMock })
+
+    const button = screen.getByRole('button', { name: 'Strikethrough' })
+
+    fireEvent.click(button)
+
+    expect(onClickMock).toHaveBeenCalled()
+  })
+
+  it('SHOULD forward ref to the button element', () => {
+    const ref = createRef<HTMLButtonElement>()
+
+    render(<ToolbarButton icon="Subscript" ref={ref} />)
+
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement)
+    if (ref.current) {
+      expect(ref.current.tagName).toBe('BUTTON')
+    }
+  })
+
+  it('SHOULD render endIcon at the end WHEN endIcon prop is provided', () => {
+    makeSUT({ icon: 'Bold', endIcon: 'ChevronDown' })
+
+    const icons = screen.getAllByTestId('icon')
+
+    expect(icons.length).toBe(2)
+  })
+
+  it('SHOULD wrap the button inside Tooltip WHEN tooltip is provided', () => {
+    makeSUT({
+      icon: 'Bold',
+      tooltip: 'Dica'
+    })
+
+    const tooltip = screen.getByTestId('tooltip-mock')
+
+    expect(tooltip).toBeInTheDocument()
+  })
+})
+```
+
+## Testes de hooks
+
+- Além do Jest e do Typescript, use React Testing Library
+- Testar o envio de parâmetros para o hook (se necessário)
+- Testar o retorno de dados do hook (se houver retorno)
+- Testar a invocação e os colaterais de métodos/funções presentes no hook
+
+```typescript
+import { useRef } from 'react'
+
+import { fireEvent, render, screen } from '@testing-library/react'
+
+import { useClickAway } from '.'
+
+const ComponentMock = ({
+  onOutsideClick
+}: {
+  onOutsideClick: VoidFunction
+}) => {
+  const ref = useRef<HTMLDivElement>(null)
+  useClickAway(ref, onOutsideClick)
+  return (
+    <div>
+      <div ref={ref} data-testid="inside">
+        Inside
+      </div>
+      <div data-testid="outside">Outside</div>
+    </div>
+  )
+}
+
+const makeSUT = ({ onOutsideClick }: { onOutsideClick: VoidFunction }) => {
+  return render(<ComponentMock onOutsideClick={onOutsideClick} />)
+}
+
+describe('useClickAway', () => {
+  const fakeOnOutsideClick = jest.fn()
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('SHOULD call handler WHEN clicking outside the element', () => {
+    makeSUT({ onOutsideClick: fakeOnOutsideClick })
+
+    fireEvent.mouseDown(screen.getByTestId('outside'))
+
+    expect(fakeOnOutsideClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('SHOULD not call handler WHEN clicking inside the element', () => {
+    makeSUT({ onOutsideClick: fakeOnOutsideClick })
+
+    fireEvent.mouseDown(screen.getByTestId('inside'))
+
+    expect(fakeOnOutsideClick).not.toHaveBeenCalled()
+  })
+
+  it('SHOULD remove event listener on unmount', () => {
+    const { unmount } = makeSUT({ onOutsideClick: fakeOnOutsideClick })
+
+    unmount()
+
+    fireEvent.mouseDown(document.body)
+
+    expect(fakeOnOutsideClick).not.toHaveBeenCalled()
+  })
+})
+
+```
+
+## Testes de extensão
+
+- Testar os comandos da extensão
+- Testar atalhos de teclado
+- Testar estados armazenados na extensão
+- Se houver nós customizados, testar a renderização
+- Testar, se presentes, as funções parseHTML e renderHTML para validar a renderização no editor
+
+```typescript
+import { Editor } from '@tiptap/core'
+import StarterKit from '@tiptap/starter-kit'
+
+import { UnorderedListExtension } from '.'
+
+describe('UnorderedListExtension', () => {
+  let editor: Editor
+
+  beforeEach(() => {
+    editor = new Editor({
+      extensions: [
+        StarterKit.configure({ orderedList: false, bulletList: false }),
+        UnorderedListExtension
+      ],
+      content: '<p>Fake paragraph</p>'
+    })
+  })
+
+  afterEach(() => {
+    editor.destroy()
+  })
+
+  it('SHOULD parse existing dash list from HTML input', () => {
+    const html = `<ul data-bullet-style="dash">
+      <li><p>Conteúdo</p></li>
+    </ul>`
+    editor.commands.setContent(html)
+
+    const node = editor.state.doc.firstChild
+
+    expect(node?.type.name).toBe('bulletList')
+    expect(node?.attrs.bulletStyle).toBe('dash')
+  })
+
+  it('SHOULD create default bullet list WITH toggleBulletList', () => {
+    editor.chain().focus().toggleBulletList().run()
+
+    const output = editor.getHTML()
+
+    expect(output).toContain('<ul')
+    expect(output).not.toContain('data-bullet-style')
+  })
+
+  it('SHOULD update existing list style WITH setBulletStyle', () => {
+    editor.chain().focus().toggleBulletList().setBulletListStyle('arrow').run()
+
+    const output = editor.getHTML()
+
+    expect(output).toContain('data-bullet-style="arrow"')
+    expect(output).not.toContain('data-bullet-style="bullet"')
+  })
+})
+```
+
+## Padrão AAA (Arrange, Act e Assert)
+
+- Utilize o padrão AAA para a escrita dos casos de teste
+- Arrange: Preparar o cenário: criar objetos, mocks e dados iniciais
+- Act: Executar a ação que será testada
+- Assert: Verificar se o resultado é o esperado
+- Sempre adiciona quebra de linha entre as etapas
+
+```typescript
+it('SHOULD increment counter', () => {
+  // Arrange
+  const counter = new Counter()
+
+  // Act
+  counter.increment()
+
+  // Assert
+  expect(counter.value).toBe(1)
+})
+```
+
+## Padrão makeSUT (setup)
+
+- Sempre que possível, crie uma função makeSUT responsável pelo setup dos testes
+- Ela deve incluir a inicialização padrão de propriedades e parâmetros
+- Ela deve retornar a renderização do componente/hook/extensão
+
+```typescript
+const makeSUT = ({ ...props }: ToolbarButtonProps) => {
+  return render(<ToolbarButton {...props} />)
+}
+
+it('SHOULD call onClick', () => {
+  const onClick = jest.fn()
+
+  makeSUT({ onClick, label: 'Salvar' })
+
+  userEvent.click(screen.getByRole('button'))
+
+  expect(onClick).toHaveBeenCalled()
+})
+
+```

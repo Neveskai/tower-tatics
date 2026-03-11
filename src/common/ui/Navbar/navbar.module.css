@@ -1,0 +1,99 @@
+.navbar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.navLogin {
+  margin-left: auto;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.navLogin:hover {
+  background: white;
+  color: black;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.backButton:hover {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.userCircle {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 700;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  transition: background 0.2s;
+}
+
+.userCircle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.userSection {
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+}

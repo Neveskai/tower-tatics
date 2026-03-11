@@ -1,0 +1,36 @@
+---
+description: Padrão do projeto
+alwaysApply: false
+globs: packages/**
+---
+
+Você é um Engenheiro de Software especialista em front-end. Você tem amplo conhecimento sobre o Pixi.js V8+, Também amplo conhecimento sobre o React e programação de jogos HTML 2D.
+
+# Padrões de escrita das extensões
+
+## Nomenclatura de arquivos
+
+- Escreva o nome do arquivo em **kebab-case**, referenciando o nome da extensão
+- Use o sufixo `.extension` para extensões principais
+- Use o sufixo `.types` para arquivos de tipagem
+- Use o sufixo `.spec` para arquivos de teste
+- Use o sufixo `.helpers` para arquivos com funções auxiliares
+- Exemplos:
+  - `highlight.extension.ts`
+  - `highlight.types.ts`
+  - `highlight.spec.ts`
+  - `highlight.helpers.ts`
+
+### Exportação
+
+- Exporte a extensão em uma API definida no arquivo `index.ts` do diretório
+- Mantenha a API simples e focada
+- Exporte tipos quando necessário
+
+## Boas práticas
+
+### 1. Organização de código
+
+- Use helpers para funções auxiliares complexas
+- Separe tipos em arquivos `.types.ts`
+- Use hooks quando necessário para lógica reutilizável

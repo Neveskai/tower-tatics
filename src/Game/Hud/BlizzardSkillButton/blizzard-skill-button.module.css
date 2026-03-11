@@ -1,0 +1,27 @@
+.SkillButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 4px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(80, 120, 160, 0.9) 0%, rgba(50, 80, 120, 0.95) 100%);
+  color: var(--color-white, #fff);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-color: rgba(200, 230, 255, 0.9);
+  box-shadow: 0 0 12px rgba(100, 180, 255, 0.5);
+}
+
+.SkillButtonActive {
+  filter: brightness(1.5);
+}
+
+.SkillButtonDisabled {
+  opacity: 0.5;
+  filter: brightness(0.5);
+  cursor: default;
+  box-shadow: none;
+}

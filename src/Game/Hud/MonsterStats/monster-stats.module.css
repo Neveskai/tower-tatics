@@ -1,0 +1,43 @@
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.monsterName {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+.attributes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 6px;
+  align-items: center;
+  justify-items: start;
+  width: 100%;
+}
+
+.attributeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gold);
+  min-width: 0;
+  font-size: 0.8rem;
+}
+
+.attributeItem .iconHighlight {
+  display: inline-flex;
+}

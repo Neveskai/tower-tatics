@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Tower Tatics</string>
+    <string name="title_activity_main">Tower Tatics</string>
+    <string name="package_name">tower.tatics.app</string>
+    <string name="custom_url_scheme">tower.tatics.app</string>
+    <string name="server_client_id">1080420753484-sdb8kp9elermoeha19dt4ll3nfhk7t02.apps.googleusercontent.com</string>
+</resources>

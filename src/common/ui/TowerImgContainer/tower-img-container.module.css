@@ -1,0 +1,33 @@
+.imageContainer {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.baseImage, .weaponImage {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.baseImage {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+}
+
+.boxContainer {
+  background: #181818;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}

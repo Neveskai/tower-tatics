@@ -1,0 +1,59 @@
+.SwitchHud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: 12px;
+}
+
+.ModeButtons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ActiveHud {
+  width: 100%;
+}
+
+.ModeButton {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.ModeButton.modeTower {
+  background: var(--hud-mode-tower);
+  color: var(--color-white);
+}
+
+.ModeButton.modeShop {
+  background: var(--hud-mode-shop);
+  color: var(--color-white);
+}
+
+.ModeButton.modeBattle {
+  background: var(--hud-mode-battle);
+  color: var(--color-white);
+}
+
+.ModeButtonInactive {
+  background: var(--color-bg-secondary, rgba(0, 0, 0, 0.35));
+  color: var(--color-text-muted, rgba(255, 255, 255, 0.5));
+  opacity: 0.85;
+}

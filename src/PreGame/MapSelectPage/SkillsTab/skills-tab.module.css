@@ -1,0 +1,231 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  padding: 20px 16px;
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(218, 165, 32, 0.3);
+  margin: 6px 0 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.enabledHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.enabledLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.enabledChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(218, 165, 32, 0.25);
+  color: var(--color-gold);
+  border-radius: 6px;
+  border: 1px solid rgba(218, 165, 32, 0.4);
+}
+
+.chipEmpty {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 40, 35, 0.95) 0%,
+    rgba(18, 28, 22, 0.98) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.25s;
+  text-align: left;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover:not(.cardLocked) {
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+.cardSelected {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.5);
+}
+
+.cardLocked {
+  opacity: 0.6;
+  filter: saturate(0.5);
+}
+
+.cardIcon {
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cardIconInner {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+}
+
+.badge--enabled {
+  background: rgba(0, 200, 100, 0.9);
+  color: #fff;
+}
+
+.badge--unlocked {
+  background: rgba(218, 165, 32, 0.9);
+  color: #0a0a0a;
+}
+
+.badge--locked {
+  background: rgba(100, 100, 100, 0.9);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cardContent {
+  padding: 8px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cardMeta {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.loading {
+  color: var(--color-white);
+  font-size: 1.125rem;
+  padding: 40px;
+}
+
+.detailsPanel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.detailsContent {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 40, 35, 0.98) 0%,
+    rgba(18, 28, 22, 0.99) 100%
+  );
+  border: 2px solid var(--color-gold);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.detailsContent h3 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  color: var(--color-white);
+}
+
+.detailsDescription {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.detailsContent .backButton {
+  margin-top: 8px;
+}

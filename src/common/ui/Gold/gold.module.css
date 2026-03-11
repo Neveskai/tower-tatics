@@ -1,0 +1,12 @@
+.GoldPanel {
+  padding: 4px 0;
+}
+
+.TextGold {
+  font-weight: 700;
+  font-size: 18px;
+  min-width: 32px;
+  color: var(--color-gold);
+  text-shadow: var(--hud-text-shadow);
+  letter-spacing: 0.02em;
+}

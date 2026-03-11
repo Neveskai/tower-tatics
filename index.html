@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Tower Tatics</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="preloader" class="hidden">
+        <div id="preloader-pixi-background"></div>
+        <div class="preloader-text">Carregando...</div>
+
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloader-progress"></div>
+        </div>
+      </div>
+
+      <div id="pixi-container"></div>
+      <div id="react-root"></div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

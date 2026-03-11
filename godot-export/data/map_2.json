@@ -1,0 +1,207 @@
+{
+  "id": 2,
+  "nome": "Cemetery",
+  "descricao": "A cursed graveyard where the dead refuse to rest.",
+  "dificuldade": "medium",
+  "hordas": 15,
+  "wave_interval_seconds": 24,
+  "imagem": "res://assets/images/maps/Map_2.png",
+  "grid_color": 4605510,
+  "tile_tint": 6978155,
+  "dirt_tint": 5001042,
+  "waves": [
+    {
+      "wave_id": 1,
+      "type": "slimeBoned",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1,
+      "max_health": 160,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 2,
+      "type": "orc",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 240,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 3,
+      "type": "slime",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 320,
+      "spawn_per_side": 12,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 160,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 400,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeBoned",
+      "size": "big",
+      "spawn_duration": 3000,
+      "gold": 22,
+      "speed": 1.3224999999999998,
+      "max_health": 2400,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "slime",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 160,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeBoned",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1.15,
+      "max_health": 320,
+      "spawn_per_side": 11,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 160,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "goblin",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 480,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 9,
+      "type": "wolf",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 480,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 2,
+      "speed": 1.15,
+      "max_health": 400,
+      "spawn_per_side": 11,
+      "air": true
+    },
+    {
+      "wave_id": 11,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 500,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 12,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 1500,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 3,
+      "type": "slime",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1250,
+      "spawn_per_side": 11,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 2,
+            "speed": 1.6531249999999997,
+            "maxHealth": 500,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 14,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 1000,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 15,
+      "type": "goblin",
+      "size": "big",
+      "spawn_duration": 2500,
+      "gold": 39,
+      "speed": 1.15,
+      "max_health": 7500,
+      "spawn_per_side": 1
+    }
+  ]
+}

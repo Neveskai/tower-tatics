@@ -1,0 +1,336 @@
+{
+  "id": 4,
+  "nome": "Ice",
+  "descricao": "Frozen wasteland.",
+  "dificuldade": "very_hard",
+  "hordas": 25,
+  "wave_interval_seconds": 14,
+  "imagem": "res://assets/images/maps/Map_4.png",
+  "grid_color": 5855577,
+  "tile_tint": 13166847,
+  "dirt_tint": 8368895,
+  "waves": [
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1,
+      "max_health": 180,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 2,
+      "type": "wolf",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 270,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeBoned",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.15,
+      "max_health": 360,
+      "spawn_per_side": 9,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 180,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 450,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeBoned",
+      "size": "big",
+      "spawn_duration": 2500,
+      "gold": 20,
+      "speed": 1.3224999999999998,
+      "max_health": 2520,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 270,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 17,
+      "type": "slimeBoned",
+      "size": "big",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 720,
+      "spawn_per_side": 9,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 180,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 540,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 9,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 540,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 360,
+      "spawn_per_side": 10,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1,
+      "max_health": 520,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 2,
+      "type": "wolf",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.3224999999999998,
+      "max_health": 1040,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeBoned",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1300,
+      "spawn_per_side": 11,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 2,
+            "speed": 1.6531249999999997,
+            "maxHealth": 520,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 1300,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 5,
+      "type": "wolf",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 30,
+      "speed": 1.6531249999999997,
+      "max_health": 6760,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 780,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeBoned",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.3224999999999998,
+      "max_health": 2080,
+      "spawn_per_side": 10,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 520,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.6531249999999997,
+      "max_health": 1560,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 9,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 1560,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1040,
+      "spawn_per_side": 12,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1,
+      "max_health": 940,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 2,
+      "type": "wolf",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 6,
+      "speed": 1.6531249999999997,
+      "max_health": 1880,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeBoned",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.15,
+      "max_health": 1880,
+      "spawn_per_side": 13,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 7000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 940,
+            "spawnPerSide": 14
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.3224999999999998,
+      "max_health": 2350,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 5,
+      "type": "wolf",
+      "size": "big",
+      "spawn_duration": 7000,
+      "gold": 50,
+      "speed": 1.6531249999999997,
+      "max_health": 15040,
+      "spawn_per_side": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "grid": {
+    "rows": 15,
+    "cols": 15
+  },
+  "monster_speed": {
+    "VERY_SLOW": 1,
+    "SLOW": 1.15,
+    "NORMAL": 1.3224999999999998,
+    "FAST": 1.6531249999999997,
+    "VERY_FAST": 1.8184375
+  },
+  "monster_size": {
+    "SMALL": 2,
+    "MEDIUM": 2.4,
+    "BIG": 2.8,
+    "HUGE": 3.2,
+    "DEMONIC": 3.6
+  },
+  "base_health": 20
+}

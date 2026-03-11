@@ -1,0 +1,542 @@
+{
+  "id": 5,
+  "nome": "Hell",
+  "descricao": "Nightmare realm.",
+  "dificuldade": "nightmare",
+  "hordas": 40,
+  "wave_interval_seconds": 12,
+  "imagem": "res://assets/images/maps/Map_5.png",
+  "grid_color": 4605510,
+  "tile_tint": 8400944,
+  "dirt_tint": 16742972,
+  "waves": [
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1,
+      "max_health": 200,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 2,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 300,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeVulcan",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.15,
+      "max_health": 400,
+      "spawn_per_side": 9,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 200,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 500,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 2500,
+      "gold": 24,
+      "speed": 1.3224999999999998,
+      "max_health": 3000,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 300,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 800,
+      "spawn_per_side": 9,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 200,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 600,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 9,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 600,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 400,
+      "spawn_per_side": 10,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1,
+      "max_health": 840,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 2,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.3224999999999998,
+      "max_health": 1120,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeVulcan",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1400,
+      "spawn_per_side": 11,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 2,
+            "speed": 1.6531249999999997,
+            "maxHealth": 560,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 1400,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 36,
+      "speed": 1.6531249999999997,
+      "max_health": 7840,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 840,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.3224999999999998,
+      "max_health": 2240,
+      "spawn_per_side": 10,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 560,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.6531249999999997,
+      "max_health": 1680,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 9,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 1680,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1120,
+      "spawn_per_side": 12,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1,
+      "max_health": 1500,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 2,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 6,
+      "speed": 1.6531249999999997,
+      "max_health": 2000,
+      "spawn_per_side": 13,
+      "special": {
+        "enrageOnLowHP": true
+      }
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeVulcan",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.15,
+      "max_health": 2500,
+      "spawn_per_side": 13,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 7000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 1000,
+            "spawnPerSide": 14
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.3224999999999998,
+      "max_health": 2500,
+      "spawn_per_side": 13,
+      "special": {
+        "enrageOnLowHP": true
+      }
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 7000,
+      "gold": 60,
+      "speed": 1.6531249999999997,
+      "max_health": 18000,
+      "spawn_per_side": 1,
+      "special": {
+        "enrageOnLowHP": true
+      }
+    },
+    {
+      "wave_id": 6,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.3224999999999998,
+      "max_health": 1500,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 7000,
+      "gold": 6,
+      "speed": 1.3224999999999998,
+      "max_health": 4500,
+      "spawn_per_side": 12,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 7000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 1000,
+            "spawnPerSide": 14
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.6531249999999997,
+      "max_health": 3000,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 9,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 7000,
+      "gold": 5,
+      "speed": 1.6531249999999997,
+      "max_health": 3000,
+      "spawn_per_side": 16,
+      "special": {
+        "enrageOnLowHP": true
+      }
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 7000,
+      "gold": 6,
+      "speed": 1.15,
+      "max_health": 2500,
+      "spawn_per_side": 14,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "orcLord",
+      "size": "small",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.15,
+      "max_health": 3400,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 2,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 8000,
+      "gold": 7,
+      "speed": 1.6531249999999997,
+      "max_health": 3400,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 3,
+      "type": "slimeVulcan",
+      "size": "normal",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.15,
+      "max_health": 5100,
+      "spawn_per_side": 13,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 8000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 1700,
+            "spawnPerSide": 14
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.3224999999999998,
+      "max_health": 5950,
+      "spawn_per_side": 13
+    },
+    {
+      "wave_id": 5,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 4000,
+      "gold": 84,
+      "speed": 1.6531249999999997,
+      "max_health": 44200,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.3224999999999998,
+      "max_health": 3400,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 7,
+      "type": "slimeVulcan",
+      "size": "big",
+      "spawn_duration": 8000,
+      "gold": 7,
+      "speed": 1.3224999999999998,
+      "max_health": 8500,
+      "spawn_per_side": 13,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "slimeBoned",
+            "size": "small",
+            "spawnDuration": 8000,
+            "gold": 1,
+            "speed": 1.8184375,
+            "maxHealth": 1700,
+            "spawnPerSide": 14
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "slimeBoned",
+      "size": "small",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.6531249999999997,
+      "max_health": 6800,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 9,
+      "type": "plantFire",
+      "size": "normal",
+      "spawn_duration": 8000,
+      "gold": 6,
+      "speed": 1.6531249999999997,
+      "max_health": 6800,
+      "spawn_per_side": 16
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 8000,
+      "gold": 7,
+      "speed": 1.3224999999999998,
+      "max_health": 5100,
+      "spawn_per_side": 13,
+      "air": true
+    }
+  ]
+}

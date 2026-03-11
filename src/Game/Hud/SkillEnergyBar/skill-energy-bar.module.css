@@ -1,0 +1,40 @@
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.SegmentTrack {
+  width: 28px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(220, 235, 255, 0.6);
+  box-shadow: 0 0 4px rgba(40, 80, 140, 0.5);
+  overflow: hidden;
+  background: rgba(10, 20, 40, 0.8);
+}
+
+.SegmentTrackCurrent {
+  box-shadow: 0 0 6px rgba(100, 190, 255, 0.6);
+}
+
+.SegmentTrackFull {
+  filter: brightness(1.15);
+  box-shadow: 0 0 6px rgba(140, 230, 255, 0.8);
+  border-color: rgba(220, 245, 255, 0.95);
+}
+
+.SegmentFill {
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.18s linear;
+  background: linear-gradient(
+    180deg,
+    rgba(120, 210, 255, 0.95) 0%,
+    rgba(70, 160, 230, 0.98) 100%
+  );
+}
+

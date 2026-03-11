@@ -1,0 +1,54 @@
+.wrapper {
+  display: inline-flex;
+  position: relative;
+  min-width: 24px;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.popover {
+  min-width: 140px;
+  max-width: 280px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--tooltip-bg, rgba(20, 20, 24, 0.96));
+  color: var(--tooltip-fg, #eee);
+  font-size: 12px;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--tooltip-border, rgba(255, 255, 255, 0.1));
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+/* Portal-rendered popover: position set via inline style */
+.popoverPortal {
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--tooltip-border, rgba(255, 255, 255, 0.15));
+}
+
+.body {
+  white-space: pre-line;
+}
+
+.body :global(svg) {
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.body:empty {
+  display: none;
+}
+

@@ -1,0 +1,66 @@
+.text {
+  display: inline-block;
+  user-select: text;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Tamanhos */
+.smallSize {
+  font-size: 13px;
+}
+
+.mediumSize {
+  font-size: 15px;
+}
+
+.largeSize {
+  font-size: 17px;
+}
+
+/* Variantes */
+.defaultVariant {
+  color: var(--color-white);
+}
+
+.dangerVariant {
+  color: var(--color-danger);
+}
+
+.warningVariant {
+  color: var(--color-warning);
+}
+
+.goldVariant {
+  color: gold;
+}
+
+.successVariant {
+  color: var(--color-success);
+}
+
+.whiteVariant {
+  color: white;
+}
+
+.secondaryVariant {
+  color: var(--color-secondary);
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+  display: block;
+}
+
+/* Pesos de fonte */
+.fontWeight-normal {
+  font-weight: 400;
+}
+
+.fontWeight-medium {
+  font-weight: 500;
+}
+
+.fontWeight-bold {
+  font-weight: 700;
+}

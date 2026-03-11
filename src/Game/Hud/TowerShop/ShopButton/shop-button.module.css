@@ -1,0 +1,80 @@
+.TowerShopButton {
+  border-radius: var(--hud-panel-radius);
+  width: 100%;
+  height: 90px;
+  min-width: 0;
+  gap: 6px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  border: var(--hud-panel-border-styled, var(--hud-panel-border));
+  background: var(--hud-panel-bg-styled, var(--hud-panel-bg));
+  box-shadow: var(--hud-panel-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.ActiveTowerButton {
+  border-color: var(--color-gold);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  transform: none;
+}
+
+.label {
+  font-size: 13px;
+  text-align: center;
+  color: var(--color-white);
+  text-shadow: var(--hud-text-shadow);
+}
+
+.iconsRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* Override Tooltip wrapper min-size so it doesn't expand the button in the flex layout */
+.tooltipTriggerCompact {
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+.iconTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  min-height: 14px;
+}
+
+.cost {
+  gap: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-gold);
+  text-shadow: var(--hud-text-shadow);
+}
+
+.costDisabled {
+  color: var(--color-red);
+  background: rgba(80, 20, 20, 0.4);
+}

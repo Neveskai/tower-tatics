@@ -1,0 +1,197 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  padding: 20px 16px;
+  padding-bottom: 16px;
+}
+
+.footer {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 16px 20px;
+  background: linear-gradient(
+    165deg,
+    #1a2520 0%,
+    #0f1814 30%,
+    #0a0f0d 60%,
+    #151d18 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(218, 165, 32, 0.3);
+  margin: 6px 0 30px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.loading {
+  color: var(--color-white);
+  font-size: 1.125rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 0;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    gap: 12px;
+  }
+}
+
+.card {
+  width: calc(50% - 6px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 40, 35, 0.95) 0%,
+    rgba(18, 28, 22, 0.98) 100%
+  );
+  border: 1px solid #bbb;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.25s;
+  text-align: left;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.card:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(218, 165, 32, 0.2);
+}
+
+.cardSelected {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.5), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.cardLocked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: saturate(0.4);
+}
+
+.cardLocked .cardImage {
+  filter: grayscale(0.8) brightness(0.6);
+}
+
+.cardImage {
+  aspect-ratio: 16 / 9;
+  background-size: fill;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.lockOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lockOverlay svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.cardContent {
+  padding: 14px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.cardDesc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cardDifficulty {
+  font-weight: 600;
+  padding: 2px 8px;
+  background: rgba(218, 165, 32, 0.25);
+  border-radius: 6px;
+  color: var(--color-gold);
+}
+
+.cardWaves {
+  white-space: nowrap;
+}
+
+.startButton {
+  min-width: 220px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(218, 165, 32, 0.4);
+}

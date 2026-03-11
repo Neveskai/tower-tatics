@@ -1,0 +1,37 @@
+.NativeTowerShop {
+  width: 100%;
+  gap: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.CarouselWrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 2px 0;
+}
+
+.CarouselWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.CarouselTrack {
+  display: flex;
+  position: relative;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  gap: 10px;
+  padding: 0 0;
+}
+
+.CarouselTrack > * {
+  scroll-snap-align: center;
+  flex: 1 1 0;
+  min-width: 70px;
+}

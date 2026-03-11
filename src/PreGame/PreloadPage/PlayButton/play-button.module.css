@@ -1,0 +1,24 @@
+.playButton {
+  margin: auto;
+  margin-bottom: 16%;
+  padding: 16px 54px;
+  letter-spacing: 0.50px;
+  background: linear-gradient(to top, #c0d9c0, #fff);
+  color: #000;
+  font-size: 30px;
+  font-weight: 900;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.65);
+  filter: brightness(1.05);
+  border: 2px solid #000;
+  transition: filter 0.4s;
+}
+
+.playButton:hover {
+  filter: brightness(1.25);
+}

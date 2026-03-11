@@ -1,0 +1,22 @@
+.BarContainer {
+  margin-top: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.BarFill {
+  background: linear-gradient(to right, #00c6ff, #6090d0);
+  height: 100%;
+  position: relative;
+  margin-top: -20px;
+}
+
+.BarText {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+  font-size: 14px;
+}
