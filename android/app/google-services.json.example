@@ -1,0 +1,9 @@
+{
+  "project_info": {
+    "project_number": "REPLACE_ME",
+    "project_id": "REPLACE_ME",
+    "storage_bucket": "REPLACE_ME"
+  },
+  "client": [],
+  "configuration_version": "1"
+}

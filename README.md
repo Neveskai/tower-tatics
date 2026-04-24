@@ -10,6 +10,12 @@ O app carrega o catálogo de torres antes do usuário fazer login. As regras do 
 
 Se usar Firebase CLI: `firebase deploy --only firestore:rules` (configure `firebase.json` com `"firestore": { "rules": "firestore.rules" }`).
 
+## Android (Firebase) – `google-services.json`
+
+- **Não commitar** `android/app/google-services.json` (o repo ignora esse arquivo).
+- Para rodar localmente, baixe o `google-services.json` no **Firebase Console** (Project settings → Your apps → Android) e coloque em `android/app/google-services.json`.
+- Um template vazio está em `android/app/google-services.json.example`.
+
 ## Deploy (Netlify) e segurança
 
 O `netlify.toml` define headers de segurança para todas as rotas:
