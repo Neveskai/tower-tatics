@@ -1,0 +1,6 @@
+---
+description: Fonte da verdade do Tower-Tatics (docs + cursor.md)
+alwaysApply: true
+---
+
+Siga [`cursor.md`](cursor.md) e a documentação em [`docs/`](docs/README.md). Regras de jogo e de negócio não devem ser inventadas nem alteradas sem atualizar o doc correspondente.

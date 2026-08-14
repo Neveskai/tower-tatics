@@ -1,8 +1,10 @@
 ---
-description: Padrão do projeto
+description: Padrão legado do cliente 2D (Pixi/React). Não usar no projeto Godot.
 alwaysApply: false
-globs: packages/**
+globs: src/**,packages/**
 ---
+
+**Legado 2D.** Aplica-se apenas ao cliente Pixi.js + React em `src/`. Para Godot 3D, siga `cursor.md` e `docs/`.
 
 Você é um Engenheiro de Software especialista em front-end. Você tem amplo conhecimento sobre o Pixi.js V8+, Também amplo conhecimento sobre o React e programação de jogos HTML 2D.
 
