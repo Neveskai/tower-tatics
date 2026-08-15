@@ -1,0 +1,16 @@
+{
+  "id": "wave-1-game-over-at-5-hp",
+  "layer": "integration",
+  "doc": "docs/game-design/maps-and-waves.md",
+  "given": { "new_match": true, "map": 1, "seed": 1, "hp": 5 },
+  "when": {
+    "send_wave": 1,
+    "tick_until": "no_monsters_or_game_over",
+    "max_ms": 120000
+  },
+  "then": {
+    "outcome": "game_over",
+    "hp": 0,
+    "monsters_leaked": 1
+  }
+}

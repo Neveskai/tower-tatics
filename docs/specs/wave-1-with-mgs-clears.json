@@ -1,0 +1,38 @@
+{
+  "id": "wave-1-with-mgs-clears",
+  "layer": "integration",
+  "doc": "docs/game-design/combat.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "towers": [
+      { "type": "machine-gun", "row": 7, "col": 3 },
+      { "type": "machine-gun", "row": 7, "col": 5 },
+      { "type": "machine-gun", "row": 7, "col": 7 },
+      { "type": "machine-gun", "row": 7, "col": 9 },
+      { "type": "machine-gun", "row": 7, "col": 11 },
+      { "type": "machine-gun", "row": 10, "col": 3 },
+      { "type": "machine-gun", "row": 10, "col": 5 },
+      { "type": "machine-gun", "row": 10, "col": 7 },
+      { "type": "machine-gun", "row": 10, "col": 9 },
+      { "type": "machine-gun", "row": 10, "col": 11 },
+      { "type": "machine-gun", "row": 4, "col": 7 },
+      { "type": "machine-gun", "row": 13, "col": 7 }
+    ]
+  },
+  "when": {
+    "send_wave": 1,
+    "tick_until": "no_monsters_or_game_over",
+    "max_ms": 120000
+  },
+  "then": {
+    "monsters_killed": 10,
+    "monsters_leaked": 0,
+    "monsters_alive": 0,
+    "hp": 100,
+    "gold": 20,
+    "outcome": "playing",
+    "path_ok": true
+  }
+}

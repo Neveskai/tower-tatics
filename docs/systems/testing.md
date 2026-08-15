@@ -38,8 +38,11 @@ Eu (agente) corro o comando, leio o relatório, e sei se gold/HP/ondas/torres ba
   "monsters_alive": 0,
   "monsters_leaked": 0,
   "monsters_killed": 0,
+  "monsters": [
+    { "id": 1, "hp": 160, "row": 7, "col": 10, "progress": 10 }
+  ],
   "towers": [
-    { "type": "machine-gun", "row": 7, "col": 5, "level": 1 }
+    { "type": "machine-gun", "row": 7, "col": 5, "level": 1, "range": 4, "attack_damage": 20, "attack_speed": 0.75 }
   ],
   "grid_rows": 15,
   "grid_cols": 15,
@@ -86,7 +89,7 @@ snapshot() # Dictionary — o agente compara com then{}
 
 RNG da simulação: sempre `seed` na spec (`given.seed`). Sem seed → `1`.
 
-Tick: `sim.tick_ms(delta)` em timestep **fixo** (ex. 50 ms). `tick_until` para quando `monsters_alive == 0` ou `outcome != playing`.
+Tick: `sim.tick_ms(delta)` em timestep **fixo** (ex. 50 ms). `tick_until` para quando `monsters_alive == 0` ou `outcome != playing` (game over conta mesmo se ainda houver monstros no tabuleiro).
 
 ## Spec JSON
 
@@ -105,12 +108,15 @@ Ver schema em [`docs/specs/spec.schema.json`](../specs/spec.schema.json).
 
 `then` é um **subconjunto** do snapshot: só as chaves listadas são comparadas.
 
+`given.monsters` injeta inimigos já no tabuleiro (para specs de targeting). Campos: `row`, `col`, `hp`, `speed`, `gold`, `air`, `progress` (tiles já andados no próprio path).
+
 Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 
 | Ação | Efeito |
 |---|---|
 | `leak: n` | n leaks de 5 HP |
 | `place_tower: {type,row,col}` | compra se ouro e path ok |
+| `try_place_tower: {type,row,col}` | tenta place; grava `last_error` sem falhar o spec |
 | `sell_tower: {row,col}` | venda pre/mid-game |
 | `send_wave: n` | spawna wave n |
 | `tick_ms: n` | avança sim |
@@ -119,6 +125,7 @@ Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 | `pick_tile: {row,col}` | seleciona tile no Board |
 | `inspect_visual: true` | preenche `visual` (câmera, contraste Kenney, Phantom Camera, paleta) |
 | `inspect_scene: true` | instancia o Board 3D e preenche `visual` com tiles/props/chão |
+| `inspect_placement: true` | instancia preview 2×2, shop HUD e torre de teste; preenche `visual` de placement |
 
 ## Loop TDD (obrigatório)
 

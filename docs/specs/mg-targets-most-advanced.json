@@ -1,0 +1,23 @@
+{
+  "id": "mg-targets-most-advanced",
+  "layer": "unit",
+  "doc": "docs/game-design/combat.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "towers": [{ "type": "machine-gun", "row": 7, "col": 7 }],
+    "monsters": [
+      { "row": 7, "col": 4, "hp": 160, "speed": 0, "gold": 0, "progress": 2 },
+      { "row": 7, "col": 10, "hp": 160, "speed": 0, "gold": 0, "progress": 10 }
+    ]
+  },
+  "when": { "tick_ms": 1200 },
+  "then": {
+    "monsters_killed": 0,
+    "monsters_alive": 2,
+    "monsters": [
+      { "col": 4, "hp": 160 },
+      { "col": 10, "hp": 140 }
+    ]
+  }
+}

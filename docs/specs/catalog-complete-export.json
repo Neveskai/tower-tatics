@@ -8,6 +8,12 @@
     "catalog": {
       "towers_count": 6,
       "machine_gun_cost": 5,
+      "machine_gun_range": 4,
+      "machine_gun_attack_damage": 20,
+      "machine_gun_attack_speed": 0.75,
+      "missile_range": 6,
+      "missile_attack_damage": 40,
+      "missile_attack_speed": 0.3,
       "heavy_gun_heat_max": 120,
       "blizzard_cost": 2,
       "energy_max": 3,

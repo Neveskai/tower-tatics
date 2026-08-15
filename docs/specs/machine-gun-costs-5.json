@@ -8,6 +8,16 @@
   },
   "then": {
     "gold": 55,
-    "towers": [{ "type": "machine-gun", "row": 7, "col": 5, "level": 1 }]
+    "towers": [
+      {
+        "type": "machine-gun",
+        "row": 7,
+        "col": 5,
+        "level": 1,
+        "range": 4,
+        "attack_damage": 20,
+        "attack_speed": 0.75
+      }
+    ]
   }
 }
