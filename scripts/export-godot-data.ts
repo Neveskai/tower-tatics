@@ -1,8 +1,8 @@
 /**
- * Exporta dados do jogo (mapas, waves, constantes) para JSON
- * utilizável no Godot. Executar: npx tsx scripts/export-godot-data.ts
+ * Exporta dados do jogo para JSON utilizável no Godot (WSN-55).
+ * Executar: npx tsx scripts/export-godot-data.ts  (npm run export:godot)
  *
- * Saída: godot-export/data/
+ * Saída: godot-export/data/  e cópia em godot/data/
  */
 
 import * as fs from "fs";
@@ -28,9 +28,38 @@ import {
   DEMONIC,
   BASE_HEALT,
 } from "../src/Game/common/constants/monsters.constants";
-import { ROWS, COLS } from "../src/Game/common/constants/cols.constants";
+import { ROWS, COLS, CENTER_ROW } from "../src/Game/common/constants/cols.constants";
+import {
+  INITIAL_PLAYER_GOLD,
+  INITIAL_PLAYER_HEALTH,
+  LEAK_DAMAGE,
+} from "../src/Game/common/constants/player.constants";
+import {
+  SKILL_COSTS,
+  SKILL_MAX_SEGMENTS,
+  SKILL_SEGMENT_REGEN_MS,
+} from "../src/Game/common/constants/skills.constants";
+import {
+  BLIZZARD_DAMAGE_PER_TICK,
+  BLIZZARD_DURATION_MS,
+  BLIZZARD_SIZE,
+  BLIZZARD_SLOW_DURATION,
+  BLIZZARD_SLOW_FACTOR,
+  BLIZZARD_TICK_INTERVAL_MS,
+} from "../src/Game/Skills/Blizzard/blizzard-constants";
+import { MAX_EQUIPPED } from "../src/common/stores/tower-inventory/tower-inventory.constants";
+import { getTowerUnlockForMap } from "../src/common/constants/map-rewards.constants";
+import { buildTowersJson } from "./godot-catalog-payload";
 
 const OUT_DIR = path.join(process.cwd(), "godot-export", "data");
+const GODOT_DATA_DIR = path.join(process.cwd(), "..", "tower-tatics-3D", "resources", "data");
+const MAX_TOWER_LEVEL = 6;
+const CAMERA_ELEVATION_DEG = 38;
+const CAMERA_YAW_DEG = 42;
+const TILE_SIZE_M = 1;
+const SKILL_TICK_MS = 200;
+const BLIZZARD_HIT_RADIUS = 5.5;
+const MAX_ENABLED_SKILLS = 3;
 
 function toGodotWaveConfig(wave: MonsterConfig): Record<string, unknown> {
   const entry: Record<string, unknown> = {
@@ -135,9 +164,15 @@ function main() {
     fs.mkdirSync(OUT_DIR, { recursive: true });
   }
 
-  // Constantes globais para Godot
   const constants = {
-    grid: { rows: ROWS, cols: COLS },
+    grid: {
+      rows: ROWS,
+      cols: COLS,
+      portal_row_start: CENTER_ROW,
+      portal_row_end: CENTER_ROW + 5,
+      tile_size_m: TILE_SIZE_M,
+    },
+    camera: { elevation_deg: CAMERA_ELEVATION_DEG, yaw_deg: CAMERA_YAW_DEG },
     monster_speed: {
       VERY_SLOW,
       SLOW,
@@ -148,11 +183,7 @@ function main() {
     monster_size: { SMALL, MEDIUM, BIG, HUGE, DEMONIC },
     base_health: BASE_HEALT,
   };
-  fs.writeFileSync(
-    path.join(OUT_DIR, "constants.json"),
-    JSON.stringify(constants, null, 2)
-  );
-  console.log("Written constants.json");
+  writeJson("constants.json", constants);
 
   // Um JSON por mapa (waves incluídas)
   for (let i = 0; i < MAP_META.length; i++) {
@@ -160,14 +191,9 @@ function main() {
     const waves = WAVE_SETS[i].map(toGodotWaveConfig);
     const mapData = { ...meta, waves };
     const filename = `map_${meta.id}.json`;
-    fs.writeFileSync(
-      path.join(OUT_DIR, filename),
-      JSON.stringify(mapData, null, 2)
-    );
-    console.log("Written", filename);
+    writeJson(filename, mapData);
   }
 
-  // Lista de mapas (só metadados, sem waves)
   const mapList = MAP_META.map((m) => ({
     id: m.id,
     nome: m.nome,
@@ -180,13 +206,72 @@ function main() {
     tile_tint: m.tile_tint,
     dirt_tint: m.dirt_tint,
   }));
-  fs.writeFileSync(
-    path.join(OUT_DIR, "maps_list.json"),
-    JSON.stringify(mapList, null, 2)
-  );
-  console.log("Written maps_list.json");
+  writeJson("maps_list.json", mapList);
 
-  console.log("\nDone. Copy folder godot-export/data/ to your Godot project (e.g. resources/data/).");
+  writeJson("towers.json", buildTowersJson());
+  writeJson("skills.json", {
+    energy: {
+      max_segments: SKILL_MAX_SEGMENTS,
+      regen_ms: SKILL_SEGMENT_REGEN_MS,
+      tick_ms: SKILL_TICK_MS,
+      start: 0,
+    },
+    blizzard: {
+      cost: SKILL_COSTS.blizzard,
+      preview_tiles: BLIZZARD_SIZE,
+      duration_ms: BLIZZARD_DURATION_MS,
+      slow_factor: BLIZZARD_SLOW_FACTOR,
+      slow_duration: BLIZZARD_SLOW_DURATION,
+      damage_per_tick: BLIZZARD_DAMAGE_PER_TICK,
+      tick_interval_ms: BLIZZARD_TICK_INTERVAL_MS,
+      hit_radius: BLIZZARD_HIT_RADIUS,
+    },
+  });
+  writeJson("player.json", {
+    hp: INITIAL_PLAYER_HEALTH,
+    gold: INITIAL_PLAYER_GOLD,
+    leak_damage: LEAK_DAMAGE,
+    max_tower_level: MAX_TOWER_LEVEL,
+    max_equipped: MAX_EQUIPPED,
+    energy_start: 0,
+  });
+
+  const mapsProgress: Record<string, { unlocked: boolean }> = {};
+  const mapRewards: Record<string, { tower: string }> = {};
+  for (let id = 1; id <= 5; id++) {
+    mapsProgress[String(id)] = { unlocked: id === 1 };
+    const reward = getTowerUnlockForMap(id);
+    if (reward) mapRewards[String(id)] = { tower: reward };
+  }
+  writeJson("progression.json", {
+    maps: mapsProgress,
+    map_rewards: mapRewards,
+    default_towers: {
+      unlocked: ["machine-gun"],
+      equipped: ["machine-gun"],
+      discovered: ["machine-gun"],
+    },
+    default_skills: {
+      unlocked: ["blizzard"],
+      enabled: ["blizzard"],
+      max_enabled: MAX_ENABLED_SKILLS,
+    },
+  });
+
+  copyDir(OUT_DIR, GODOT_DATA_DIR);
+  console.log("\nDone. Mirrored to tower-tatics-3D/resources/data/.");
+}
+
+function writeJson(filename: string, data: unknown) {
+  fs.writeFileSync(path.join(OUT_DIR, filename), JSON.stringify(data, null, 2) + "\n");
+  console.log("Written", filename);
+}
+
+function copyDir(from: string, to: string) {
+  fs.mkdirSync(to, { recursive: true });
+  for (const name of fs.readdirSync(from)) {
+    fs.copyFileSync(path.join(from, name), path.join(to, name));
+  }
 }
 
 main();

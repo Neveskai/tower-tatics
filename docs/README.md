@@ -21,10 +21,15 @@ Fonte da verdade das regras de negócio e de jogo. Extraída do cliente 2D em `s
 
 - [Fluxo de jogo](systems/game-flow.md)
 - [Catálogo e dados](systems/data-catalog.md)
+- [Testes TDD + SpecDriven](systems/testing.md)
+- [Specs Given/When/Then](specs/README.md)
 
 ## Migração
 
 - [Godot 4 3D](migration/godot-3d.md)
+- [De-para Kenney 3D](migration/kenney-3d.md)
+- [Fase 1 — progresso](migration/fase-1-progress.md)
+- [Cliente Godot — run / debug](../../tower-tatics-3D/cursor.md)
 
 ## Outros
 

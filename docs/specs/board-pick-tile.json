@@ -1,0 +1,8 @@
+{
+  "id": "board-pick-tile",
+  "layer": "integration",
+  "doc": "docs/game-design/placement-and-pathfinding.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": { "pick_tile": { "row": 7, "col": 5 } },
+  "then": { "selected_row": 7, "selected_col": 5 }
+}

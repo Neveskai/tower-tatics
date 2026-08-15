@@ -22,7 +22,6 @@
   },
   "base_health": 20,
   "camera": {
-    "elevation_deg": 38,
-    "yaw_deg": 42
+    "elevation_deg": 38
   }
 }

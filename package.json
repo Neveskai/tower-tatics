@@ -11,6 +11,10 @@
     "lint": "eslint .",
     "dev": "vite",
     "seed:catalog": "tsx scripts/seed-catalog-towers.ts",
+    "export:godot": "tsx scripts/export-godot-data.ts",
+    "import:kenney": "node scripts/import-kenney-phase1.mjs",
+    "test:specs": "node scripts/validate-specs.mjs",
+    "test:godot": "godot --headless --path ../tower-tatics-3D -s res://test/cli_runner.gd -- --specs docs/specs",
     "assets:android": "node scripts/generate-android-icon.js && npx @capacitor/assets generate --android --iconBackgroundColor \"#F5F0E8\"",
     "assets:play-store": "node scripts/generate-play-store-assets.js"
   },

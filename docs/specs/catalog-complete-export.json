@@ -1,0 +1,27 @@
+{
+  "id": "catalog-complete-export",
+  "layer": "unit",
+  "doc": "docs/systems/data-catalog.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": {},
+  "then": {
+    "catalog": {
+      "towers_count": 6,
+      "machine_gun_cost": 5,
+      "heavy_gun_heat_max": 120,
+      "blizzard_cost": 2,
+      "energy_max": 3,
+      "energy_regen_ms": 15000,
+      "player_hp": 100,
+      "player_gold": 60,
+      "leak_damage": 5,
+      "max_equipped": 4,
+      "map_1_unlocked": true,
+      "map_2_wave_count": 15,
+      "map_3_wave_count": 20,
+      "map_4_wave_count": 25,
+      "map_5_wave_count": 40,
+      "map_1_reward": "missile"
+    }
+  }
+}

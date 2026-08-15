@@ -2,7 +2,7 @@
 
 ## Grid
 
-15×15, axis-aligned (não isométrico em matemática). Posição mundo = `(col, row) * TILE_SIZE`. No 2D o tile size é dinâmico (`appWidth / (ROWS - 2)`); no Godot usar tamanho de tile fixo em metros.
+15×15, axis-aligned (não isométrico em matemática). Posição mundo = `(col, row) * TILE_SIZE`. No 2D o tile size é dinâmico (`appWidth / (ROWS - 2)`); no Godot o tile é **1 m** fixo. Câmera ortográfica 3/4: elevação **38°**, yaw **42°** (Phantom Camera, sem câmera livre).
 
 ## Footprint da torre
 

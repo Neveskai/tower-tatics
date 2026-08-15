@@ -1,0 +1,8 @@
+{
+  "id": "kenney-phase1-models",
+  "layer": "unit",
+  "doc": "docs/migration/kenney-3d.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": {},
+  "then": { "kenney_phase1_ok": true }
+}

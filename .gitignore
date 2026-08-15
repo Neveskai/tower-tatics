@@ -38,3 +38,7 @@ local.properties
 gradle.properties
 secrets.json
 config.json
+
+# Godot 4 (cache / import — o projeto em godot/ é versionado)
+godot/.godot/
+godot/*.translation

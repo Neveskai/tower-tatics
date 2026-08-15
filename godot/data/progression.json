@@ -1,0 +1,56 @@
+{
+  "maps": {
+    "1": {
+      "unlocked": true
+    },
+    "2": {
+      "unlocked": false
+    },
+    "3": {
+      "unlocked": false
+    },
+    "4": {
+      "unlocked": false
+    },
+    "5": {
+      "unlocked": false
+    }
+  },
+  "map_rewards": {
+    "1": {
+      "tower": "missile"
+    },
+    "2": {
+      "tower": "heavy-gun"
+    },
+    "3": {
+      "tower": "electric"
+    },
+    "4": {
+      "tower": "freeze"
+    },
+    "5": {
+      "tower": "anti-air"
+    }
+  },
+  "default_towers": {
+    "unlocked": [
+      "machine-gun"
+    ],
+    "equipped": [
+      "machine-gun"
+    ],
+    "discovered": [
+      "machine-gun"
+    ]
+  },
+  "default_skills": {
+    "unlocked": [
+      "blizzard"
+    ],
+    "enabled": [
+      "blizzard"
+    ],
+    "max_enabled": 3
+  }
+}

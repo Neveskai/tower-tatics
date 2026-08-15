@@ -4,3 +4,5 @@ alwaysApply: true
 ---
 
 Siga [`cursor.md`](cursor.md) e a documentação em [`docs/`](docs/README.md). Regras de jogo e de negócio não devem ser inventadas nem alteradas sem atualizar o doc correspondente.
+
+Desenvolvimento Godot: TDD + SpecDriven ([`docs/systems/testing.md`](docs/systems/testing.md)). Spec JSON em `docs/specs/` antes do código. Assert via `GameSnapshot` / runner headless — nunca screenshot como prova.

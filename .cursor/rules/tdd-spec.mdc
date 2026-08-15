@@ -1,0 +1,11 @@
+---
+description: TDD + SpecDriven para o Godot — specs antes do código, assert via snapshot
+alwaysApply: true
+---
+
+# TDD + SpecDriven
+
+1. Nova regra de jogo → atualizar `docs/game-design/` e adicionar `docs/specs/<id>.json`.
+2. Implementar o mínimo na Sim (sem mesh/UI) até `node scripts/validate-specs.mjs` e o runner headless passarem.
+3. Assert só contra `GameSnapshot` (gold, hp, wave, towers, outcome). Proibido usar screenshot ou espera de parede como prova.
+4. Não “consertar” quirks documentados para o teste passar.

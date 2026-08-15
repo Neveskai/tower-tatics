@@ -1,6 +1,6 @@
 # Migração Godot 4 3D
 
-Plano executável para reconstruir o Tower-Tatics em 3D. Regras de jogo: [`docs/`](../README.md). Não rebalancear nem “corrigir” quirks neste plano (stealth sem `reveal`, `noGoldReward` morto, AoE sem filtro air/ground, freeze L2 mais fraco, desalinhamento spawn vs path sources).
+Plano executável para reconstruir o Tower-Tatics em 3D. Regras de jogo: [`docs/`](../README.md). De-para de assets: [`kenney-3d.md`](kenney-3d.md). Não rebalancear nem “corrigir” quirks — ver secção abaixo.
 
 ## Decisões fechadas
 
@@ -8,31 +8,51 @@ Plano executável para reconstruir o Tower-Tatics em 3D. Regras de jogo: [`docs/
 |---|---|
 | Engine | Godot **4.x** |
 | Linguagem | **GDScript** |
-| Repo | mesmo repositório, projeto novo em `godot/` |
-| Câmera | 3D **ortográfica**, elevação ~**38°** (look 3/4 atual). Sem câmera livre na partida. |
+| Repo | cliente Godot em **`tower-tatics-3D`**. Este repo (`tower-tatics`) guarda docs, specs e o export JSON |
+| Câmera | 3D **ortográfica**, elevação ~**38°** + yaw ~**42°** (look 3/4 via Phantom Camera). Sem câmera livre. Jogabilidade **2D** (grid row/col) |
 | Dados | 2D (`src/` + export script) permanece fonte de balanceamento até o corte |
-| Assets | GLB Kenney **direto** (parar bake PNG/WebP) |
+| Assets | GLB Kenney **direto** (parar bake PNG/WebP) — [`kenney-3d.md`](kenney-3d.md) |
 | Backend | MVP offline (JSON). Firebase na fase de meta |
 | Não portar | Pixi, React HUD, Howler, Capacitor, tile-size dinâmico em px, 36 frames de rotação |
+
+## Quirks 2D congelados
+
+Copiar à risca. Qualquer “fix” exige atualizar o doc de design **e** esta lista.
+
+| Quirk | Comportamento atual |
+|---|---|
+| `stealth` | `reveal()` nunca é chamado — stealth fica inalvoável |
+| `noGoldReward` | declarado em waves; **não corta** ouro no kill |
+| AoE de projétil | não refiltra air/ground depois do impacto |
+| Freeze L2 | slow **mais fraco** que L1 (`0.80` vs `0.75`) |
+| Spawn vs path | spawn rows **4–9**; path sources **5–10** |
+| Electric | dano em `range+1` (3.5), não no `range` de aim (2.5) |
+| Blizzard | preview **6** tiles; hit radius **5.5** |
+
+Issues de execução (Fases 1–6) não tentam corrigir isto.
 
 ## Arquitetura alvo
 
 ```
-tower-tatics/
+tower-tatics/                 # regras, specs, export JSON, cliente Pixi legado
   cursor.md
-  docs/                    # regras (esta pasta)
-  src/                     # cliente 2D — referência até o corte
+  docs/
+  src/
   scripts/export-godot-data.ts
-  godot-export/data/       # JSON consumido pelo Godot
-  godot/                   # projeto Godot 4
-    project.godot
-    data/                  # cópia ou link dos JSON
-    scenes/
-    scripts/
-    assets/models/         # GLB Kenney
+  godot-export/data/
+
+tower-tatics-3D/              # cliente Godot: gráficos 3D, jogabilidade 2D
+  project.godot
+  resources/data/             # cópia do JSON
+  scenes/board/               # tiles Kenney + câmera 38°
+  scenes/game/                # GameWorld (lógica no plano XZ)
+  scripts/sim/                # Catalog + GameSim
+  assets/models/              # GLB Kenney
 ```
 
-Simulação em `_physics_process` (timestep fixo). Render/UI em `_process`. Grid 15×15 com tile size **fixo** em metros (ex. 1.0). Torres = nós 3D com footprint 2×2. Pathfinding: portar o A* 12-dir (não GridMap navmesh, para preservar a regra de “não bloquear todos os spawns”).
+Simulação de combate no plano **2D** (row/col → XZ). Render 3D + HUD Control em `_process`. Grid 15×15, tile **1 m**. Torres = nós 3D com footprint 2×2. Pathfinding: A* 12-dir (não navmesh).
+
+**TDD + SpecDriven:** specs em [`docs/specs/`](../specs/README.md), assert via snapshot JSON headless — [`docs/systems/testing.md`](../systems/testing.md). A Sim de jogo deve ser testável sem cena 3D.
 
 ```mermaid
 flowchart LR
@@ -58,10 +78,11 @@ Godot lê só JSON. Nenhum número de combate hardcoded em GDScript.
 
 ## Fase 1 — Projeto + grid
 
-- Criar `godot/project.godot` (renderer Forward+, Android export preset depois).
+- `godot/project.godot` no repo **`tower-tatics-3D`** (Forward+, GDScript). Android export preset depois.
+- **Harness TDD:** `GameSnapshot`, `cli_runner.gd` headless lendo `docs/specs/`, GdUnit4 para unitários de classe. Specs já existem; o runner começa vermelho até a Sim existir.
 - Importar GLB do Kenney Tower Defense Kit.
 - Cena `Board`: 15×15 tiles, bordas bloqueadas, portais rows 4–9 nas colunas 0 e 14.
-- Câmera ortográfica ~38°, zoom que mostre o tabuleiro inteiro (mobile-first).
+- Câmera ortográfica ~38° de elevação e ~42° de yaw (Phantom Camera LookAt SIMPLE no centro do board), zoom que mostre o tabuleiro inteiro (mobile-first).
 - Picking de tile por raycast no plano do chão.
 - Carregar `constants.json` + `map_1.json`.
 
@@ -139,7 +160,7 @@ Portar da [towers.md](../game-design/towers.md) e [combat.md](../game-design/com
 
 ## Fora de escopo deste plano
 
-- Começar o projeto Godot (próxima etapa, após este doc).
 - Rebalancear números ou corrigir quirks documentados.
+- Copiar o proto Node2D `tower-tatics-3D` para `godot/` (projeto 3D novo; reusar só o A* em WSN-61).
 - Perspectiva livre, navmesh, multiplayer, novas torres/skills.
 - PWA / iOS.

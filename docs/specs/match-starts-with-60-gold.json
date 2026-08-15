@@ -1,0 +1,18 @@
+{
+  "id": "match-starts-with-60-gold",
+  "layer": "unit",
+  "doc": "docs/game-design/economy.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": {},
+  "then": {
+    "gold": 60,
+    "hp": 100,
+    "wave": 0,
+    "pause": true,
+    "energy": 0,
+    "outcome": "playing",
+    "monsters_alive": 0,
+    "monsters_leaked": 0,
+    "towers": []
+  }
+}

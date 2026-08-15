@@ -1,0 +1,272 @@
+{
+  "id": 3,
+  "nome": "Garden",
+  "descricao": "A garden overrun by corrupted nature.",
+  "dificuldade": "hard",
+  "hordas": 20,
+  "wave_interval_seconds": 18,
+  "imagem": "res://assets/images/maps/Map_3.png",
+  "grid_color": 5855577,
+  "tile_tint": 8964459,
+  "dirt_tint": 6197059,
+  "waves": [
+    {
+      "wave_id": 1,
+      "type": "plantZombie",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1,
+      "max_health": 160,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 2,
+      "type": "plant",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 320,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 3,
+      "type": "plantZombie",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.15,
+      "max_health": 320,
+      "spawn_per_side": 9,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "plant",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 160,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 400,
+      "spawn_per_side": 9
+    },
+    {
+      "wave_id": 5,
+      "type": "wolf",
+      "size": "big",
+      "spawn_duration": 2500,
+      "gold": 20,
+      "speed": 1.6531249999999997,
+      "max_health": 2160,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.3224999999999998,
+      "max_health": 240,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 7,
+      "type": "plant",
+      "size": "big",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1,
+      "max_health": 640,
+      "spawn_per_side": 10,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "plant",
+            "size": "small",
+            "spawnDuration": 5000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 160,
+            "spawnPerSide": 10
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "wolf",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 480,
+      "spawn_per_side": 10
+    },
+    {
+      "wave_id": 9,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 5000,
+      "gold": 2,
+      "speed": 1.6531249999999997,
+      "max_health": 480,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 5000,
+      "gold": 3,
+      "speed": 1.15,
+      "max_health": 320,
+      "spawn_per_side": 9,
+      "air": true
+    },
+    {
+      "wave_id": 1,
+      "type": "plant",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1,
+      "max_health": 520,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 2,
+      "type": "plantZombie",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1040,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 3,
+      "type": "slime",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1300,
+      "spawn_per_side": 11,
+      "special": {
+        "spawnsOnDeath": [
+          {
+            "wave_id": 1,
+            "type": "slime",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 2,
+            "speed": 1.6531249999999997,
+            "maxHealth": 520,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 4,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 1300,
+      "spawn_per_side": 11
+    },
+    {
+      "wave_id": 5,
+      "type": "plantZombie",
+      "size": "big",
+      "spawn_duration": 3000,
+      "gold": 30,
+      "speed": 2.4,
+      "max_health": 8320,
+      "spawn_per_side": 1
+    },
+    {
+      "wave_id": 6,
+      "type": "orc",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.3224999999999998,
+      "max_health": 780,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 7,
+      "type": "plant",
+      "size": "big",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1,
+      "max_health": 2080,
+      "spawn_per_side": 10,
+      "special": {
+        "spawnsPerTime": [
+          {
+            "wave_id": 1,
+            "type": "plant",
+            "size": "small",
+            "spawnDuration": 6000,
+            "gold": 1,
+            "speed": 1.6531249999999997,
+            "maxHealth": 520,
+            "spawnPerSide": 12
+          }
+        ]
+      }
+    },
+    {
+      "wave_id": 8,
+      "type": "wolf",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 1820,
+      "spawn_per_side": 12
+    },
+    {
+      "wave_id": 9,
+      "type": "goblin",
+      "size": "normal",
+      "spawn_duration": 6000,
+      "gold": 3,
+      "speed": 1.6531249999999997,
+      "max_health": 1820,
+      "spawn_per_side": 14
+    },
+    {
+      "wave_id": 10,
+      "type": "bee",
+      "size": "small",
+      "spawn_duration": 6000,
+      "gold": 4,
+      "speed": 1.15,
+      "max_health": 1040,
+      "spawn_per_side": 11,
+      "air": true
+    }
+  ]
+}

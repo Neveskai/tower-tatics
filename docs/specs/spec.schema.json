@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tower-tatics-spec",
+  "title": "Tower-Tatics scenario spec",
+  "type": "object",
+  "required": ["id", "layer", "doc", "given", "when", "then"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "layer": { "enum": ["unit", "integration", "e2e"] },
+    "doc": { "type": "string" },
+    "given": { "type": "object" },
+    "when": { "type": "object" },
+    "then": { "type": "object" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "leak-costs-5-hp",
+  "layer": "unit",
+  "doc": "docs/game-design/maps-and-waves.md",
+  "given": { "new_match": true, "map": 1, "hp": 100 },
+  "when": { "leak": 1 },
+  "then": { "hp": 95, "monsters_leaked": 1, "outcome": "playing" }
+}

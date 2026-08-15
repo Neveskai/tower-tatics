@@ -9,12 +9,13 @@ As regras de negócio e de jogo estão em [`docs/`](docs/README.md). O código 2
 - Não altere balanceamento, comportamento ou IDs sem atualizar o doc correspondente.
 - Identificadores em inglês (`machine-gun`, `blizzard`, `catalog_towers`).
 - Documentação em português.
+- **TDD + SpecDriven:** spec em `docs/specs/` antes do código; validar com snapshot JSON headless — ver [`docs/systems/testing.md`](docs/systems/testing.md). Não use screenshot como prova de gameplay.
 
 ## Stack
 
 | Alvo (migração) | Legado (não portar) |
 |---|---|
-| Godot 4, GDScript, projeto em `godot/` | Pixi.js, React HUD, Howler, Capacitor |
+| Godot 4, GDScript, repo **`tower-tatics-3D`** (gráficos 3D, jogabilidade 2D) | Pixi.js, React HUD, Howler, Capacitor |
 | JSON em `godot-export/data/` | Tile-size dinâmico em pixels |
 | GLB Kenney em 3D | Pipeline PNG/WebP de sprites |
 
@@ -33,4 +34,9 @@ As regras de negócio e de jogo estão em [`docs/`](docs/README.md). O código 2
 - [Progressão](docs/game-design/progression.md)
 - [Fluxo de jogo](docs/systems/game-flow.md)
 - [Catálogo e dados](docs/systems/data-catalog.md)
+- [Testes TDD + SpecDriven](docs/systems/testing.md)
+- [Specs](docs/specs/README.md)
 - [Migração Godot 3D](docs/migration/godot-3d.md)
+- [De-para Kenney 3D](docs/migration/kenney-3d.md)
+- [Fase 1 — progresso](docs/migration/fase-1-progress.md)
+- [Cliente Godot — run / debug](../tower-tatics-3D/cursor.md)

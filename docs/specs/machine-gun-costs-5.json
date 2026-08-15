@@ -1,0 +1,13 @@
+{
+  "id": "machine-gun-costs-5",
+  "layer": "integration",
+  "doc": "docs/game-design/towers.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": {
+    "place_tower": { "type": "machine-gun", "row": 7, "col": 5 }
+  },
+  "then": {
+    "gold": 55,
+    "towers": [{ "type": "machine-gun", "row": 7, "col": 5, "level": 1 }]
+  }
+}

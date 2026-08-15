@@ -1,0 +1,18 @@
+{
+  "energy": {
+    "max_segments": 3,
+    "regen_ms": 15000,
+    "tick_ms": 200,
+    "start": 0
+  },
+  "blizzard": {
+    "cost": 2,
+    "preview_tiles": 6,
+    "duration_ms": 5000,
+    "slow_factor": 0.3,
+    "slow_duration": 1.5,
+    "damage_per_tick": 10,
+    "tick_interval_ms": 500,
+    "hit_radius": 5.5
+  }
+}

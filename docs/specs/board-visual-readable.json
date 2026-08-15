@@ -1,0 +1,27 @@
+{
+  "id": "board-visual-readable",
+  "layer": "unit",
+  "doc": "docs/migration/kenney-3d.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": { "inspect_visual": true },
+  "then": {
+    "visual": {
+      "camera_pitch_deg": 38,
+      "camera_yaw_deg": 42,
+      "camera_not_top_down": true,
+      "shadows_enabled": true,
+      "sand_not_white": true,
+      "dirt_differs_from_sand": true,
+      "phantom_camera": true,
+      "kenney_uses_vertex_color": true,
+      "colormap_present": true,
+      "grass_is_green": true,
+      "dirt_is_warm": true,
+      "path_contrasts_grass": true,
+      "tiles_not_white": true,
+      "tower_not_white": true,
+      "accent_is_orange": true,
+      "stone_is_cool": true
+    }
+  }
+}

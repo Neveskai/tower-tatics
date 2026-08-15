@@ -1,0 +1,24 @@
+{
+  "id": "board-visual-e2e-kenney-palette",
+  "layer": "e2e",
+  "doc": "docs/migration/kenney-3d.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": { "inspect_visual": true, "inspect_scene": true },
+  "then": {
+    "visual": {
+      "camera_not_top_down": true,
+      "colormap_present": true,
+      "grass_is_green": true,
+      "dirt_is_warm": true,
+      "path_contrasts_grass": true,
+      "tiles_not_white": true,
+      "tower_not_white": true,
+      "board_instanced": true,
+      "path_uses_dirt_tiles": true,
+      "grass_uses_tile_mesh": true,
+      "decorations_on_border": true,
+      "ground_plane_dark": true,
+      "tile_material_has_colormap": true
+    }
+  }
+}

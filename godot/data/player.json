@@ -1,0 +1,8 @@
+{
+  "hp": 100,
+  "gold": 60,
+  "leak_damage": 5,
+  "max_tower_level": 6,
+  "max_equipped": 4,
+  "energy_start": 0
+}
