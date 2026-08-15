@@ -5,6 +5,7 @@
   "given": {
     "new_match": true,
     "map": 1,
+    "pause": false,
     "towers": [{ "type": "machine-gun", "row": 7, "col": 7 }],
     "monsters": [
       { "row": 7, "col": 4, "hp": 160, "speed": 0, "gold": 0, "progress": 2 },

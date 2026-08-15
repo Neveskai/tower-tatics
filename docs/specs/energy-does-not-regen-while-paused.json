@@ -1,0 +1,16 @@
+{
+  "id": "energy-does-not-regen-while-paused",
+  "layer": "unit",
+  "doc": "docs/game-design/skills.md",
+  "given": { "new_match": true, "map": 1, "seed": 1 },
+  "when": {
+    "send_wave": 1,
+    "set_pause": true,
+    "tick_ms": 15000
+  },
+  "then": {
+    "energy": 0,
+    "pause": true,
+    "wave": 1
+  }
+}

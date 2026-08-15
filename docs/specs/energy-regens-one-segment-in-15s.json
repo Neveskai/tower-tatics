@@ -1,0 +1,14 @@
+{
+  "id": "energy-regens-one-segment-in-15s",
+  "layer": "unit",
+  "doc": "docs/game-design/skills.md",
+  "given": { "new_match": true, "map": 1, "seed": 1 },
+  "when": {
+    "send_wave": 1,
+    "tick_ms": 15000
+  },
+  "then": {
+    "energy": 1,
+    "pause": false
+  }
+}

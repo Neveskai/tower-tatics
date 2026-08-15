@@ -1,0 +1,14 @@
+{
+  "id": "hud-send-wave-energy-e2e",
+  "layer": "e2e",
+  "doc": "docs/systems/game-flow.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": { "inspect_hud": true },
+  "then": {
+    "visual": {
+      "send_wave_button_present": true,
+      "energy_bar_segments": 3,
+      "blizzard_button_present": true
+    }
+  }
+}

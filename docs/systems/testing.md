@@ -110,6 +110,8 @@ Ver schema em [`docs/specs/spec.schema.json`](../specs/spec.schema.json).
 
 `given.monsters` injeta inimigos já no tabuleiro (para specs de targeting). Campos: `row`, `col`, `hp`, `speed`, `gold`, `air`, `progress` (tiles já andados no próprio path).
 
+`given.energy` e `given.pause` sobrepõem o início da partida (`energy_start` / `pause=true`).
+
 Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 
 | Ação | Efeito |
@@ -119,13 +121,16 @@ Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 | `try_place_tower: {type,row,col}` | tenta place; grava `last_error` sem falhar o spec |
 | `sell_tower: {row,col}` | venda pre/mid-game |
 | `send_wave: n` | spawna wave n |
-| `tick_ms: n` | avança sim |
+| `set_pause: bool` | pausa/despausa a sim (regen e ticks param) |
+| `tick_ms: n` | avança sim (no-op se `pause`) |
 | `tick_until: "no_monsters_or_game_over"` | + `max_ms` |
 | `cast_blizzard: {row,col}` | se energia >= 2 |
+| `try_cast_blizzard: {row,col}` | tenta blizzard; grava `last_error` sem falhar o spec |
 | `pick_tile: {row,col}` | seleciona tile no Board |
 | `inspect_visual: true` | preenche `visual` (câmera, contraste Kenney, Phantom Camera, paleta) |
 | `inspect_scene: true` | instancia o Board 3D e preenche `visual` com tiles/props/chão |
 | `inspect_placement: true` | instancia preview 2×2, shop HUD e torre de teste; preenche `visual` de placement |
+| `inspect_hud: true` | instancia o HUD; preenche `visual` (Send Wave, energia, blizzard) |
 
 ## Loop TDD (obrigatório)
 

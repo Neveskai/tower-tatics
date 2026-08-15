@@ -22,5 +22,12 @@ Contrato executável das regras em [`game-design/`](../game-design/overview.md).
 | [place-tower-rejects-full-block](place-tower-rejects-full-block.json) | integration | placement-and-pathfinding |
 | [tower-footprint-world-center](tower-footprint-world-center.json) | integration | placement-and-pathfinding |
 | [placement-ui-e2e](placement-ui-e2e.json) | e2e | placement-and-pathfinding |
+| [energy-regens-one-segment-in-15s](energy-regens-one-segment-in-15s.json) | unit | skills |
+| [energy-does-not-regen-while-paused](energy-does-not-regen-while-paused.json) | unit | skills |
+| [blizzard-costs-2-energy-not-gold](blizzard-costs-2-energy-not-gold.json) | unit | skills |
+| [blizzard-rejected-without-energy](blizzard-rejected-without-energy.json) | unit | skills |
+| [blizzard-tick-damages-in-radius](blizzard-tick-damages-in-radius.json) | unit | skills |
+| [pause-mid-wave-blocks-place](pause-mid-wave-blocks-place.json) | integration | maps-and-waves |
+| [hud-send-wave-energy-e2e](hud-send-wave-energy-e2e.json) | e2e | game-flow |
 
 Nova regra = novo arquivo aqui **antes** do código. Validar: `node scripts/validate-specs.mjs`.

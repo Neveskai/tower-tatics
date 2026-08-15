@@ -33,6 +33,8 @@
     "hp": 100,
     "gold": 20,
     "outcome": "playing",
-    "path_ok": true
+    "path_ok": true,
+    "pause": false,
+    "wave_button": "sendNext"
   }
 }

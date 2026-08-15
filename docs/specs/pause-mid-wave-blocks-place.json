@@ -1,0 +1,18 @@
+{
+  "id": "pause-mid-wave-blocks-place",
+  "layer": "integration",
+  "doc": "docs/game-design/maps-and-waves.md",
+  "given": { "new_match": true, "map": 1, "seed": 1 },
+  "when": {
+    "send_wave": 1,
+    "set_pause": true,
+    "try_place_tower": { "type": "machine-gun", "row": 7, "col": 5 }
+  },
+  "then": {
+    "pause": true,
+    "wave": 1,
+    "gold": 60,
+    "towers": [],
+    "last_error": "paused mid-wave"
+  }
+}

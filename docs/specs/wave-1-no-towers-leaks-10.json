@@ -12,6 +12,8 @@
     "monsters_leaked": 10,
     "monsters_alive": 0,
     "hp": 50,
-    "outcome": "playing"
+    "outcome": "playing",
+    "pause": false,
+    "wave_button": "sendNext"
   }
 }

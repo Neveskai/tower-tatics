@@ -1,0 +1,14 @@
+{
+  "id": "blizzard-rejected-without-energy",
+  "layer": "unit",
+  "doc": "docs/game-design/skills.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": {
+    "try_cast_blizzard": { "row": 7, "col": 7 }
+  },
+  "then": {
+    "energy": 0,
+    "gold": 60,
+    "last_error": "not enough energy"
+  }
+}

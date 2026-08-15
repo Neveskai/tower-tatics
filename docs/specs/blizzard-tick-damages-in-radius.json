@@ -1,0 +1,26 @@
+{
+  "id": "blizzard-tick-damages-in-radius",
+  "layer": "unit",
+  "doc": "docs/game-design/skills.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "pause": false,
+    "energy": 2,
+    "monsters": [
+      { "row": 7, "col": 7, "hp": 160, "speed": 0, "gold": 0 }
+    ]
+  },
+  "when": {
+    "cast_blizzard": { "row": 7, "col": 7 },
+    "tick_ms": 500
+  },
+  "then": {
+    "energy": 0,
+    "gold": 60,
+    "monsters_alive": 1,
+    "monsters": [
+      { "col": 7, "hp": 150, "slow_factor": 0.3 }
+    ]
+  }
+}

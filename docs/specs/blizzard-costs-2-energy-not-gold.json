@@ -1,0 +1,19 @@
+{
+  "id": "blizzard-costs-2-energy-not-gold",
+  "layer": "unit",
+  "doc": "docs/game-design/skills.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "pause": false,
+    "energy": 2
+  },
+  "when": {
+    "cast_blizzard": { "row": 7, "col": 7 }
+  },
+  "then": {
+    "energy": 0,
+    "gold": 60,
+    "last_error": ""
+  }
+}
