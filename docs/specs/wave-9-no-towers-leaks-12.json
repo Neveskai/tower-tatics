@@ -1,0 +1,19 @@
+{
+  "id": "wave-9-no-towers-leaks-12",
+  "layer": "integration",
+  "doc": "docs/game-design/maps-and-waves.md",
+  "given": { "new_match": true, "map": 1, "seed": 1 },
+  "when": {
+    "send_wave": 9,
+    "tick_until": "no_monsters_or_game_over",
+    "max_ms": 120000
+  },
+  "then": {
+    "monsters_leaked": 12,
+    "monsters_alive": 0,
+    "hp": 40,
+    "outcome": "playing",
+    "pause": false,
+    "wave_button": "sendNext"
+  }
+}

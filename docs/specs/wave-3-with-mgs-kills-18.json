@@ -1,0 +1,40 @@
+{
+  "id": "wave-3-with-mgs-kills-18",
+  "layer": "integration",
+  "doc": "docs/game-design/monsters.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "towers": [
+      { "type": "machine-gun", "row": 7, "col": 3, "level": 6 },
+      { "type": "machine-gun", "row": 7, "col": 5, "level": 6 },
+      { "type": "machine-gun", "row": 7, "col": 7, "level": 6 },
+      { "type": "machine-gun", "row": 7, "col": 9, "level": 6 },
+      { "type": "machine-gun", "row": 7, "col": 11, "level": 6 },
+      { "type": "machine-gun", "row": 10, "col": 3, "level": 6 },
+      { "type": "machine-gun", "row": 10, "col": 5, "level": 6 },
+      { "type": "machine-gun", "row": 10, "col": 7, "level": 6 },
+      { "type": "machine-gun", "row": 10, "col": 9, "level": 6 },
+      { "type": "machine-gun", "row": 10, "col": 11, "level": 6 },
+      { "type": "machine-gun", "row": 4, "col": 7, "level": 6 },
+      { "type": "machine-gun", "row": 13, "col": 7, "level": 6 }
+    ]
+  },
+  "when": {
+    "send_wave": 3,
+    "tick_until": "no_monsters_or_game_over",
+    "max_ms": 120000
+  },
+  "then": {
+    "monsters_killed": 18,
+    "monsters_leaked": 0,
+    "monsters_alive": 0,
+    "hp": 100,
+    "gold": 27,
+    "outcome": "playing",
+    "path_ok": true,
+    "pause": false,
+    "wave_button": "sendNext"
+  }
+}

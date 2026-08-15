@@ -1,0 +1,47 @@
+{
+  "id": "spawns-on-death-child-at-same-tile",
+  "layer": "unit",
+  "doc": "docs/game-design/monsters.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "pause": false,
+    "towers": [{ "type": "electric", "row": 7, "col": 7 }],
+    "monsters": [
+      {
+        "row": 7,
+        "col": 5,
+        "hp": 1,
+        "speed": 0,
+        "gold": 2,
+        "type": "slime",
+        "progress": 5,
+        "special": {
+          "spawnsOnDeath": [
+            {
+              "wave_id": 1,
+              "type": "slime",
+              "size": "small",
+              "spawnDuration": 5000,
+              "gold": 1,
+              "speed": 0,
+              "maxHealth": 160,
+              "spawnPerSide": 10
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "when": { "tick_ms": 450 },
+  "then": {
+    "monsters_killed": 1,
+    "monsters_alive": 1,
+    "monsters_leaked": 0,
+    "gold": 32,
+    "monsters": [
+      { "type": "slime", "hp": 160, "row": 7, "col": 5, "gold": 1 }
+    ]
+  }
+}

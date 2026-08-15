@@ -1,0 +1,46 @@
+{
+  "id": "spawns-on-death-skips-on-leak",
+  "layer": "unit",
+  "doc": "docs/game-design/monsters.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "pause": false,
+    "monsters": [
+      {
+        "row": 7,
+        "col": 13,
+        "hp": 160,
+        "speed": 1,
+        "gold": 2,
+        "type": "slime",
+        "progress": 12,
+        "special": {
+          "spawnsOnDeath": [
+            {
+              "wave_id": 1,
+              "type": "slime",
+              "size": "small",
+              "spawnDuration": 5000,
+              "gold": 1,
+              "speed": 0,
+              "maxHealth": 160,
+              "spawnPerSide": 10
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "when": {
+    "tick_until": "no_monsters_or_game_over",
+    "max_ms": 30000
+  },
+  "then": {
+    "monsters_leaked": 1,
+    "monsters_killed": 0,
+    "monsters_alive": 0,
+    "hp": 95
+  }
+}

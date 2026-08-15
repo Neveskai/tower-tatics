@@ -1,0 +1,49 @@
+{
+  "id": "spawns-per-time-skips-if-3x3-blocked",
+  "layer": "unit",
+  "doc": "docs/game-design/monsters.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "pause": false,
+    "gold": 200,
+    "towers": [
+      { "type": "anti-air", "row": 6, "col": 6 },
+      { "type": "anti-air", "row": 6, "col": 8 },
+      { "type": "anti-air", "row": 8, "col": 6 },
+      { "type": "anti-air", "row": 8, "col": 8 }
+    ],
+    "monsters": [
+      {
+        "row": 7,
+        "col": 7,
+        "hp": 640,
+        "speed": 0,
+        "gold": 0,
+        "type": "slime",
+        "progress": 7,
+        "special": {
+          "spawnsPerTime": [
+            {
+              "wave_id": 1,
+              "type": "slime",
+              "size": "small",
+              "spawnDuration": 5000,
+              "gold": 1,
+              "speed": 0,
+              "maxHealth": 160,
+              "spawnPerSide": 10
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "when": { "tick_ms": 10000 },
+  "then": {
+    "monsters_alive": 1,
+    "monsters_killed": 0,
+    "monsters_leaked": 0
+  }
+}

@@ -39,10 +39,10 @@ Eu (agente) corro o comando, leio o relatório, e sei se gold/HP/ondas/torres ba
   "monsters_leaked": 0,
   "monsters_killed": 0,
   "monsters": [
-    { "id": 1, "hp": 160, "row": 7, "col": 10, "progress": 10 }
+    { "id": 1, "hp": 160, "row": 7, "col": 10, "progress": 10, "slow_factor": 1, "stunned": false, "type": "slime", "air": false, "gold": 2 }
   ],
   "towers": [
-    { "type": "machine-gun", "row": 7, "col": 5, "level": 1, "range": 4, "attack_damage": 20, "attack_speed": 0.75 }
+    { "type": "machine-gun", "row": 7, "col": 5, "level": 1, "range": 4, "attack_damage": 20, "attack_speed": 0.75, "overheated": false }
   ],
   "grid_rows": 15,
   "grid_cols": 15,
@@ -108,9 +108,15 @@ Ver schema em [`docs/specs/spec.schema.json`](../specs/spec.schema.json).
 
 `then` é um **subconjunto** do snapshot: só as chaves listadas são comparadas.
 
-`given.monsters` injeta inimigos já no tabuleiro (para specs de targeting). Campos: `row`, `col`, `hp`, `speed`, `gold`, `air`, `progress` (tiles já andados no próprio path).
+`given.monsters` injeta inimigos já no tabuleiro (para specs de targeting). Campos: `row`, `col`, `hp`, `speed`, `gold`, `air`, `type`, `progress` (tiles já andados no próprio path), `stun_until_ms` (opcional; stun ativo enquanto `sim_time_ms < stun_until_ms`), `special` (opcional; `spawnsOnDeath` / `spawnsPerTime` com `MonsterConfig` aninhada — JSON do mapa usa camelCase `maxHealth` / `spawnPerSide`).
+
+Snapshot de cada monstro inclui `type`, `air` e `gold` além de `id` / `hp` / `row` / `col` / `progress` / `slow_factor` / `stunned`.
 
 `given.energy` e `given.pause` sobrepõem o início da partida (`energy_start` / `pause=true`).
+
+`given.gold` é o ouro **antes** de `given.towers` (cada place ainda cobra `cost` L1).
+
+`given.towers[].level` (opcional, default 1) aplica stats de `upgrades[level]` na hora, sem timer nem custo de upgrade.
 
 Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 
@@ -119,7 +125,10 @@ Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 | `leak: n` | n leaks de 5 HP |
 | `place_tower: {type,row,col}` | compra se ouro e path ok |
 | `try_place_tower: {type,row,col}` | tenta place; grava `last_error` sem falhar o spec |
-| `sell_tower: {row,col}` | venda pre/mid-game |
+| `upgrade_tower: {row,col}` | cobra `upgrades[next].cost` e liga `is_upgrading` |
+| `try_upgrade_tower: {row,col}` | tenta upgrade; grava `last_error` sem falhar o spec |
+| `sell_tower: {row,col}` | venda pre-game = `cost`; mid-game = `sell_prices[level]` |
+| `try_sell_tower: {row,col}` | tenta venda; grava `last_error` sem falhar o spec |
 | `send_wave: n` | spawna wave n |
 | `set_pause: bool` | pausa/despausa a sim (regen e ticks param) |
 | `tick_ms: n` | avança sim (no-op se `pause`) |
@@ -130,7 +139,7 @@ Ações `when` permitidas (ir expandindo, nunca silenciosamente):
 | `inspect_visual: true` | preenche `visual` (câmera, contraste Kenney, Phantom Camera, paleta) |
 | `inspect_scene: true` | instancia o Board 3D e preenche `visual` com tiles/props/chão |
 | `inspect_placement: true` | instancia preview 2×2, shop HUD e torre de teste; preenche `visual` de placement |
-| `inspect_hud: true` | instancia o HUD; preenche `visual` (Send Wave, energia, blizzard) |
+| `inspect_hud: true` | instancia o HUD; preenche `visual` (Send Wave, energia, blizzard, Sell, Upgrade, `shop_tower_count`) |
 
 ## Loop TDD (obrigatório)
 

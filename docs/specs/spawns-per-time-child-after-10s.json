@@ -1,0 +1,46 @@
+{
+  "id": "spawns-per-time-child-after-10s",
+  "layer": "unit",
+  "doc": "docs/game-design/monsters.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "seed": 1,
+    "pause": false,
+    "monsters": [
+      {
+        "row": 7,
+        "col": 7,
+        "hp": 640,
+        "speed": 0,
+        "gold": 2,
+        "type": "slime",
+        "progress": 7,
+        "special": {
+          "spawnsPerTime": [
+            {
+              "wave_id": 1,
+              "type": "slime",
+              "size": "small",
+              "spawnDuration": 5000,
+              "gold": 1,
+              "speed": 0,
+              "maxHealth": 160,
+              "spawnPerSide": 10
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "when": { "tick_ms": 10000 },
+  "then": {
+    "monsters_alive": 2,
+    "monsters_killed": 0,
+    "monsters_leaked": 0,
+    "monsters": [
+      { "id": 1, "type": "slime", "hp": 640 },
+      { "id": 2, "type": "slime", "hp": 160, "gold": 1 }
+    ]
+  }
+}

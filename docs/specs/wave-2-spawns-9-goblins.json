@@ -1,0 +1,23 @@
+{
+  "id": "wave-2-spawns-9-goblins",
+  "layer": "integration",
+  "doc": "docs/game-design/maps-and-waves.md",
+  "given": { "new_match": true, "map": 1, "seed": 1 },
+  "when": { "send_wave": 2, "tick_ms": 5000 },
+  "then": {
+    "wave": 2,
+    "monsters_alive": 9,
+    "monsters_leaked": 0,
+    "monsters": [
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 },
+      { "type": "goblin", "hp": 320 }
+    ]
+  }
+}
