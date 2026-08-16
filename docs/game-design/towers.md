@@ -2,7 +2,9 @@
 
 IDs: `machine-gun` | `missile` | `heavy-gun` | `electric` | `freeze` | `anti-air`.
 
-Nível 1–6. Stats de L1 vêm da config base; L2–L6 de `upgrades[n]`. Fonte de runtime: Firestore `catalog_towers` (espelho em `TowerConfigs`).
+Nomes na loja Godot (só label; IDs não mudam): Ballista, Cannon, Catapult, Crystal, Ice, AA.
+
+Nível 1–6. Stats de L1 vêm da config base; L2–L6 de `upgrades[n]`. Fonte de runtime no cliente 3D: `tower-tatics-3D/resources/data/towers.json`.
 
 ## Regras globais
 
@@ -46,31 +48,31 @@ Heat: max 100, +10/tiro, cool 0.08/ms. Bullet: 200, 5×20, `bullet-mg`.
 
 Venda L1–L6: 2, 5, 12, 32, 62, 107.
 
-### missile — só chão, AoE 3
+### missile (Cannon) — só chão, AoE 1.5
 
 | Nível | Range | AtkSpeed | Dano | AoE | Custo upgrade |
 |---|---|---|---|---|---|
-| 1 | 6 | 0.30 | 40 | 3 | — (construir 20) |
-| 2 | 6 | 0.30 | 80 | 3 | 20 |
-| 3 | 6 | 0.30 | 200 | 3 | 60 |
-| 4 | 6 | 0.35 | 440 | 3 | 120 |
-| 5 | 6 | 0.35 | 1000 | 3 | 240 |
-| 6 | 7 | 0.40 | 1720 | 3 | 360 |
+| 1 | 6 | 0.50 | 40 | 1.5 | — (construir 20) |
+| 2 | 6 | 0.50 | 80 | 1.5 | 20 |
+| 3 | 6 | 0.50 | 200 | 1.5 | 60 |
+| 4 | 6 | 0.55 | 440 | 1.5 | 120 |
+| 5 | 6 | 0.55 | 1000 | 1.5 | 240 |
+| 6 | 7 | 0.60 | 1720 | 1.5 | 360 |
 
-Bullet: 200, 20×20, `bullet-missile`. Venda: 10, 20, 50, 100, 220, 400.
+Projétil direto (cannonball + trail). Venda: 10, 20, 50, 100, 220, 400.
 
-### heavy-gun — ar e chão, heat
+### heavy-gun (Catapult) — só chão, AoE 3, burn + slow
 
-| Nível | Range | AtkSpeed | Dano | AoE | Custo upgrade |
-|---|---|---|---|---|---|
-| 1 | 5 | 5.0 | 10 | 0 | — (construir 15) |
-| 2 | 5 | 5.0 | 20 | 0 | 15 |
-| 3 | 5 | 5.0 | 50 | 0 | 45 |
-| 4 | 5 | 5.0 | 130 | 0 | 120 |
-| 5 | 5 | 5.5 | 340 | 0 | 240 |
-| 6 | 6 | 5.5 | 720 | 0 | 360 |
+| Nível | Range | AtkSpeed | Dano | AoE | Slow | Slow s | Burn DPS | Burn s | Custo upgrade |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 5 | 0.40 | 36 | 3 | 0.70 | 1.5 | 8 | 2.5 | — (construir 15) |
+| 2 | 5 | 0.40 | 72 | 3 | 0.68 | 1.6 | 10 | 2.6 | 15 |
+| 3 | 5 | 0.40 | 180 | 3 | 0.65 | 1.7 | 12 | 2.8 | 45 |
+| 4 | 5 | 0.40 | 400 | 3 | 0.62 | 1.8 | 16 | 3.0 | 120 |
+| 5 | 5 | 0.45 | 800 | 3 | 0.58 | 2.0 | 22 | 3.2 | 240 |
+| 6 | 6 | 0.45 | 1400 | 3 | 0.55 | 2.2 | 30 | 3.5 | 360 |
 
-Heat: max 120, +15/tiro, cool 0.06/ms. Bullet: 800, 10×16. Venda: 7, 15, 37, 97, 217, 382.
+Pedra em arco parabólico; impacto no ponto travado no disparo. Dano, slow e burn no raio. Sem heat. Venda: 7, 15, 37, 97, 217, 382.
 
 ### electric — só chão, stun, hit instantâneo
 

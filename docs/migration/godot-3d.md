@@ -11,7 +11,7 @@ Plano executável para reconstruir o Tower-Tatics em 3D. Regras de jogo: [`docs/
 | Repo | cliente Godot em **`tower-tatics-3D`**. Este repo (`tower-tatics`) guarda docs, specs e o export JSON |
 | Câmera | 3D **ortográfica**, elevação ~**38°** + yaw ~**42°** (look 3/4 via Phantom Camera). Sem câmera livre. Jogabilidade **2D** (grid row/col) |
 | Dados | 2D (`src/` + export script) permanece fonte de balanceamento até o corte |
-| Assets | GLB Kenney **direto** (parar bake PNG/WebP) — [`kenney-3d.md`](kenney-3d.md) |
+| Assets | GLB/OBJ Kenney **direto** (parar bake PNG/WebP) — [`kenney-3d.md`](kenney-3d.md), look [`visual.md`](../../tower-tatics-3D/docs/visual.md) |
 | Backend | MVP offline (JSON). Firebase na fase de meta |
 | Não portar | Pixi, React HUD, Howler, Capacitor, tile-size dinâmico em px, 36 frames de rotação |
 

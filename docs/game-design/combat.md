@@ -22,7 +22,7 @@ Durante upgrade a torre não atira.
 |---|---|---|
 | `machine-gun` | sim | sim |
 | `missile` | não | sim |
-| `heavy-gun` | sim | sim |
+| `heavy-gun` | não | sim |
 | `electric` | não | sim |
 | `freeze` | sim | sim |
 | `anti-air` | sim | não |
@@ -33,7 +33,9 @@ Monstro com `air: true` é aéreo (`isAir`); caso contrário é terreno.
 
 ## AoE
 
-- Projétil com `AoE > 0`: dano cheio em todos os monstros a ≤ `AoE` tiles do **alvo**.
+- Projétil com `AoE > 0`: dano cheio em todos os monstros a ≤ `AoE` tiles do **impacto**.
+- `missile` (Cannon): AoE **1.5**, voo direto.
+- `heavy-gun` (Catapult): AoE **3**; slow e burn no mesmo raio. Voo em arco; o ponto de impacto é o do alvo no momento do disparo (não segue).
 - `electric`: dano + roll de stun em todos os terrestres em `(range + 1)` tiles da torre (não usa projétil).
 - `freeze` aplica slow só no alvo primário (`AoE = 0`).
 
@@ -43,25 +45,27 @@ Monstro com `air: true` é aéreo (`isAir`); caso contrário é terreno.
 - `getEnemiesInRange` exclui `isStealthActive`.
 - `reveal()` existe mas **não é chamado** em nenhum ponto do código 2D: stealth permanece inalvoável até o leak (comportamento atual; não “corrigir” na migração sem atualizar este doc).
 
-## Slow e stun
+## Slow, stun e burn
 
 | Efeito | Origem | Resistência |
 |---|---|---|
-| Slow | `freeze` (por tiro), `blizzard` (por tick) | `resistToSlow`: fator × **1.5** (slow mais fraco) |
+| Slow | `freeze` (alvo primário), `heavy-gun` (raio AoE), `blizzard` (por tick) | `resistToSlow`: fator × **1.5** (slow mais fraco) |
 | Stun | `electric` (chance por disparo) | `resistToStun`: duração × **0.5** |
+| Burn | `heavy-gun` (raio AoE) | — (DoT `burn_dps` enquanto `burn_duration`) |
 
 Slow: menor `slowFactor` = mais lento. Velocidade efetiva = `baseSpeed * speedMultiplier * slowFactor`.
 
 Stun: monstro não se move enquanto `stunned`.
 
+Burn: dano inteiro acumulado por segundo (`floor` do acumulado). Continua durante stun.
+
 ## Heat / overheat
 
-Só `machine-gun` e `heavy-gun`. A cada tiro: `heat += heatPerShot`. Se `heat >= maxHeat` → `isOverheated`, não atira. Esfria `coolRate * deltaMS` por frame; overheat acaba quando `heat === 0`.
+Só `machine-gun`. A cada tiro: `heat += heatPerShot`. Se `heat >= maxHeat` → `isOverheated`, não atira. Esfria `coolRate * deltaMS` por frame; overheat acaba quando `heat === 0`.
 
 | Torre | maxHeat | heatPerShot | coolRate (/ms) |
 |---|---|---|---|
 | `machine-gun` | 100 | 10 | 0.08 |
-| `heavy-gun` | 120 | 15 | 0.06 |
 
 ## Upgrade e combate
 

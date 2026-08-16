@@ -1,0 +1,25 @@
+{
+  "id": "heavy-gun-does-not-overheat",
+  "layer": "unit",
+  "doc": "docs/game-design/combat.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "pause": false,
+    "towers": [{ "type": "heavy-gun", "row": 7, "col": 7 }],
+    "monsters": [
+      { "row": 7, "col": 10, "hp": 9999, "speed": 0, "gold": 0, "progress": 10 }
+    ]
+  },
+  "when": { "tick_ms": 8000 },
+  "then": {
+    "towers": [
+      {
+        "type": "heavy-gun",
+        "row": 7,
+        "col": 7,
+        "overheated": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "missile-ignores-air-primary",
+  "layer": "unit",
+  "doc": "docs/game-design/combat.md",
+  "given": {
+    "new_match": true,
+    "map": 1,
+    "pause": false,
+    "towers": [{ "type": "missile", "row": 7, "col": 7 }],
+    "monsters": [
+      { "row": 7, "col": 4, "hp": 160, "speed": 0, "gold": 0, "progress": 2 },
+      { "row": 7, "col": 10, "hp": 160, "speed": 0, "gold": 0, "air": true, "progress": 10 }
+    ]
+  },
+  "when": { "tick_ms": 2800 },
+  "then": {
+    "monsters_killed": 0,
+    "monsters_alive": 2,
+    "monsters": [
+      { "col": 4, "hp": 120 },
+      { "col": 10, "hp": 160 }
+    ]
+  }
+}

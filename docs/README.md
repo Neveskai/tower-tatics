@@ -28,6 +28,7 @@ Fonte da verdade das regras de negócio e de jogo. Extraída do cliente 2D em `s
 
 - [Godot 4 3D](migration/godot-3d.md)
 - [De-para Kenney 3D](migration/kenney-3d.md)
+- [Look 3D no cliente Godot](../../tower-tatics-3D/docs/visual.md)
 - [Fase 1 — progresso](migration/fase-1-progress.md)
 - [Cliente Godot — run / debug](../../tower-tatics-3D/cursor.md)
 

@@ -1,0 +1,21 @@
+{
+  "id": "tower-visual-facing-projectiles",
+  "layer": "e2e",
+  "doc": "docs/migration/kenney-3d.md",
+  "given": { "new_match": true, "map": 1 },
+  "when": { "inspect_tower_types": true },
+  "then": {
+    "kenney_tower_types_ok": true,
+    "visual": {
+      "machine_gun_uses_ballista": true,
+      "missile_uses_cannon": true,
+      "heavy_gun_uses_catapult": true,
+      "tower_has_weapon": true,
+      "weapon_mesh_yaw_flipped": true,
+      "weapon_minus_z_faces_target": true,
+      "ballista_ammo_not_oversized": true,
+      "catapult_flight_is_arc": true,
+      "catapult_arc_is_tall": true
+    }
+  }
+}
