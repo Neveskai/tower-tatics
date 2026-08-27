@@ -18,7 +18,10 @@
       "grass_uses_tile_mesh": true,
       "decorations_on_border": true,
       "ground_plane_dark": true,
-      "tile_material_has_colormap": true
+      "island_tiles_have_depth": true,
+      "clouds_present": true,
+      "tile_material_has_colormap": true,
+      "camera_fits_playable_grid": true
     }
   }
 }
